@@ -1,670 +1,1015 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ali Eghbali — Mobile & Backend Engineer</title>
-<meta name="description" content="Ali Eghbali — Flutter specialist and ASP.NET Core developer building mobile-first products end to end.">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08111d">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Ali Eghbali — Flutter & .NET engineer building production-grade mobile products, backend systems, AI-powered security features and location-aware experiences.">
+  <meta name="author" content="Ali Eghbali">
+  <meta property="og:title" content="Ali Eghbali — Flutter & .NET Engineer">
+  <meta property="og:description" content="Production mobile, backend and intelligent software systems."
+  >
+  <meta property="og:type" content="website">
+  <title>Ali Eghbali — Flutter & .NET Engineer</title>
 
-:root{
-  --bg:#0a1420;
-  --bg2:#0d1a2a;
-  --panel:#0f1c2e;
-  --panel2:#132538;
-  --line:#22344c;
-  --line-soft:#1a2c40;
-  --text:#eaf1f8;
-  --muted:#8496ac;
-  --muted-dim:#5f7188;
-  --accent:#ff8a3d;
-  --accent-dim:#c96a2e;
-  --accent2:#4fc3f7;
-  --accent2-dim:#2f8fb8;
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
-  --radius:3px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);
-  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
-}
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(#ffffff08 1px,transparent 1px),
-    linear-gradient(90deg,#ffffff08 1px,transparent 1px);
-  background-size:56px 56px;
-  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 0%,transparent 75%);
-}
-::selection{background:var(--accent);color:#0a1420}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-img{max-width:100%;display:block}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-.wrap{max-width:1180px;margin:auto;padding:0 28px;position:relative;z-index:1}
-.mono{font-family:var(--font-mono)}
+  <style>
+    :root{
+      --bg:#08111d;
+      --bg-elev:#0b1624;
+      --panel:#0d1928;
+      --panel-2:#112235;
+      --panel-3:#152a40;
+      --line:#1c3148;
+      --line-soft:#13253a;
+      --text:#edf4fb;
+      --muted:#8da0b5;
+      --muted-2:#63768b;
+      --accent:#ff914d;
+      --accent-2:#51c8f4;
+      --success:#67e39a;
+      --danger:#ff7d7d;
+      --display:'Space Grotesk',sans-serif;
+      --body:'Inter',sans-serif;
+      --mono:'JetBrains Mono',monospace;
+      --radius:14px;
+      --radius-sm:8px;
+      --shadow:0 24px 60px rgba(0,0,0,.24);
+      --max:1240px;
+    }
 
-/* ---------- corner brackets (drafting alignment marks) ---------- */
-.corners{position:relative}
-.corners::before,.corners::after,.corners .c2,.corners .c3{content:'';position:absolute;width:14px;height:14px;pointer-events:none}
-.corners::before{top:-1px;left:-1px;border-top:1px solid var(--accent2);border-left:1px solid var(--accent2)}
-.corners::after{top:-1px;right:-1px;border-top:1px solid var(--accent2);border-right:1px solid var(--accent2)}
-.corners .c2{bottom:-1px;left:-1px;border-bottom:1px solid var(--accent2);border-left:1px solid var(--accent2)}
-.corners .c3{bottom:-1px;right:-1px;border-bottom:1px solid var(--accent2);border-right:1px solid var(--accent2)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-width:320px;
+      background:
+        radial-gradient(circle at 78% 8%, rgba(81,200,244,.07), transparent 24%),
+        radial-gradient(circle at 15% 20%, rgba(255,145,77,.055), transparent 22%),
+        var(--bg);
+      color:var(--text);
+      font-family:var(--body);
+      font-size:16px;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
 
-/* ---------- nav ---------- */
-nav{height:84px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line-soft);position:relative;z-index:5}
-.logo{font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-.5px;display:flex;align-items:center;gap:9px}
-.logo .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px #ff8a3d22}
-.logo b{color:var(--accent);font-weight:700}
-nav .links{display:flex;gap:34px;align-items:center}
-nav a.navlink{color:var(--muted);text-decoration:none;font-size:13px;font-family:var(--font-mono);letter-spacing:.3px;position:relative;padding:4px 0}
-nav a.navlink span{color:var(--accent2);margin-inline-end:6px}
-nav a.navlink:hover{color:var(--text)}
-.navright{display:flex;align-items:center;gap:22px}
-.lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.lang button{background:transparent;border:0;color:var(--muted);cursor:pointer;font:600 12px var(--font-mono);padding:7px 11px;letter-spacing:.5px}
-.lang button.active{color:#0a1420;background:var(--accent2)}
-.lang button:not(.active):hover{color:var(--text);background:var(--panel2)}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      opacity:.32;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:56px 56px;
+      mask-image:radial-gradient(ellipse 80% 55% at 50% 0%, #000 0%, transparent 80%);
+    }
 
-/* ---------- hero ---------- */
-.hero{min-height:640px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:60px;padding:70px 0 60px}
-.status-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:6px 12px;border-radius:100px;font:600 11px var(--font-mono);color:var(--muted);letter-spacing:.5px;margin-bottom:22px}
-.status-pill .ping{width:7px;height:7px;border-radius:50%;background:#5be08a;box-shadow:0 0 0 0 #5be08a66;animation:ping 2s infinite}
-@keyframes ping{0%{box-shadow:0 0 0 0 #5be08a55}70%{box-shadow:0 0 0 6px #5be08a00}100%{box-shadow:0 0 0 0 #5be08a00}}
-.eyebrow{color:var(--accent2);font:600 12px var(--font-mono);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
-.hero h1{font:600 clamp(42px,6vw,74px)/1.02 var(--font-display);letter-spacing:-2.5px;margin:0 0 22px}
-.hero h1 span{color:var(--accent)}
-.hero p.lede{max-width:540px;color:var(--muted);font-size:17px;line-height:1.75;margin-bottom:34px}
-.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
-.btn{padding:13px 22px;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:13.5px;font-family:var(--font-mono);border:1px solid var(--accent);color:#0a1420;background:var(--accent);letter-spacing:.2px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
-.btn.alt{background:transparent;color:var(--text);border-color:var(--line)}
-.btn:hover{transform:translateY(-2px)}
-.btn.alt:hover{border-color:var(--accent2);color:var(--accent2)}
-.hero-meta{display:flex;gap:22px;flex-wrap:wrap;font:500 12px var(--font-mono);color:var(--muted-dim)}
-.hero-meta b{color:var(--muted)}
+    ::selection{background:var(--accent);color:#07111c}
+    a{color:inherit}
+    button,input{font:inherit}
+    img{max-width:100%;display:block}
+    :focus-visible{outline:2px solid var(--accent-2);outline-offset:4px}
 
-.portrait-wrap{position:relative;justify-self:end}
-.portrait{position:relative;width:min(340px,80vw);aspect-ratio:1/1.08;border:1px solid var(--line)}
-.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) contrast(1.05);display:block}
-.portrait .fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(150deg,#152a3f,#0c1826);font:700 64px var(--font-display);color:var(--accent2)}
-.portrait.no-img img{display:none}
-.portrait.no-img .fallback{display:flex}
-.portrait-tag{position:absolute;bottom:-16px;right:-18px;background:var(--accent);color:#0a1420;padding:9px 13px;font:800 11px var(--font-mono);letter-spacing:.5px;transform:rotate(-3deg)}
-.portrait-coord{position:absolute;top:-14px;left:-4px;background:var(--bg);border:1px solid var(--line);padding:5px 10px;font:500 10.5px var(--font-mono);color:var(--accent2);letter-spacing:.4px}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:0 auto;position:relative;z-index:1}
+    .mono{font-family:var(--mono)}
+    .muted{color:var(--muted)}
 
-/* title block strip — engineering drawing convention */
-.titleblock{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:14px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft)}
-.tb-item{background:var(--bg);padding:10px 22px}
-.tb-item .k{font:600 9.5px var(--font-mono);color:var(--muted-dim);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:4px}
-.tb-item .v{font:600 13px var(--font-mono);color:var(--text)}
+    .top-progress{
+      position:fixed;
+      inset:0 0 auto 0;
+      height:3px;
+      z-index:100;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      transform:scaleX(0);
+      transform-origin:left center;
+    }
 
-/* ---------- sections ---------- */
-section{padding:96px 0;border-top:1px solid var(--line-soft);position:relative;z-index:1}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:48px;gap:20px;flex-wrap:wrap}
-.kicker{color:var(--accent2);font:700 12px var(--font-mono);letter-spacing:2px}
-.section-head h2{font:600 40px/1.05 var(--font-display);margin:10px 0 0;letter-spacing:-1.6px}
-.section-sub{max-width:420px;color:var(--muted);font-size:14.5px;line-height:1.7}
+    .cursor-glow{
+      position:fixed;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      pointer-events:none;
+      z-index:0;
+      background:radial-gradient(circle, rgba(81,200,244,.055), transparent 66%);
+      transform:translate(-50%,-50%);
+      opacity:0;
+      transition:opacity .25s ease;
+    }
 
-/* about */
-.about{display:grid;grid-template-columns:1.1fr .9fr;gap:70px}
-.about p{font-size:16.5px;line-height:1.85;color:var(--muted)}
-.about p+p{margin-top:16px}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
-.fact{background:var(--panel);padding:22px}
-.fact strong{display:block;font:600 26px var(--font-display);color:var(--accent2);margin-bottom:6px}
-.fact span{color:var(--muted);font-size:12.5px;line-height:1.4;display:block}
+    .site-shell{position:relative;z-index:1}
 
-/* diagram */
-.diagram-block{margin-top:70px}
-.fig-caption{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.fig-caption .tag{font:700 11px var(--font-mono);color:var(--accent);letter-spacing:1px;border:1px solid var(--accent-dim);padding:4px 9px;border-radius:var(--radius)}
-.fig-caption p{margin:0;color:var(--muted);font-size:13.5px}
-.diagram-frame{border:1px solid var(--line);background:var(--panel);padding:22px;position:relative}
-.diagram-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.diagram-scroll svg{width:100%;min-width:760px;height:auto;display:block}
-.scroll-hint{display:none;text-align:center;font:500 10.5px var(--font-mono);color:var(--muted-dim);margin-top:10px;letter-spacing:.4px}
-.svg-box-title{font:700 15px var(--font-display);fill:var(--text)}
-.svg-box-sub{font:500 11px var(--font-mono);fill:var(--muted)}
-.svg-chip{font:500 10.5px var(--font-mono);fill:var(--accent2)}
-.svg-label{font:600 10.5px var(--font-mono);fill:var(--muted-dim);letter-spacing:.5px}
-.svg-line{stroke:var(--line);stroke-width:1.4}
-.svg-dash{stroke:var(--accent2);stroke-width:1.4;stroke-dasharray:5 5}
-.svg-cross{stroke:var(--line);stroke-width:1}
+    /* ---------- navigation ---------- */
+    nav{
+      height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      border-bottom:1px solid var(--line-soft);
+      position:relative;
+      z-index:20;
+    }
 
-/* skills */
-.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
-.skill-card{background:var(--panel);padding:30px 26px}
-.skill-card .num{font:600 12px var(--font-mono);color:var(--muted-dim);letter-spacing:1px}
-.skill-card h3{font:600 22px var(--font-display);margin:14px 0 10px;letter-spacing:-.5px}
-.skill-card>p{color:var(--muted);font-size:13.5px;line-height:1.6;margin:0 0 20px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font:500 11.5px var(--font-mono);border:1px solid var(--line);color:var(--text);padding:6px 10px;border-radius:var(--radius);background:var(--bg2)}
-.skill-card:nth-child(1) .chip{border-color:#2f5142;color:#8fd9b8}
-.skill-card:nth-child(2) .chip{border-color:#2f3e5c;color:#9db8ee}
-.skill-card:nth-child(3) .chip{border-color:#5c4a2f;color:#e0b980}
+    .logo{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font:700 20px var(--display);
+      letter-spacing:-.6px;
+      white-space:nowrap;
+    }
+    .logo-dot{
+      width:9px;height:9px;border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 5px rgba(255,145,77,.10),0 0 22px rgba(255,145,77,.32);
+    }
+    .logo b{color:var(--accent)}
 
-/* experience */
-.exp-card{border:1px solid var(--line);background:var(--panel);display:grid;grid-template-columns:220px 1fr;gap:0}
-.exp-side{padding:30px 26px;border-inline-end:1px solid var(--line-soft);background:var(--panel2)}
-.exp-duration{font:600 12px var(--font-mono);color:var(--accent2);letter-spacing:.3px;margin-bottom:10px;display:block}
-.exp-side h3{font:600 21px var(--font-display);margin:0 0 6px;letter-spacing:-.4px}
-.exp-side .co{color:var(--muted);font-size:13px}
-.exp-main{padding:30px 30px}
-.exp-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px}
-.exp-list li{padding-inline-start:24px;position:relative;color:var(--muted);font-size:14.5px;line-height:1.65}
-.exp-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-family:var(--font-mono)}
-[dir="rtl"] .exp-list li::before{left:auto;right:0}
-[dir="rtl"] .exp-list li{padding-inline-start:0;padding-inline-end:24px}
-.exp-list li b{color:var(--text);font-weight:600}
+    .navlinks{display:flex;align-items:center;gap:28px;margin-inline:auto}
+    .navlink{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      text-decoration:none;
+      color:var(--muted);
+      font:600 11px var(--mono);
+      letter-spacing:.45px;
+      padding:10px 0;
+    }
+    .navlink span{color:var(--accent-2);font-size:9px}
+    .navlink::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 2px 0;
+      height:1px;
+      background:var(--accent-2);
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:transform .22s ease;
+    }
+    .navlink:hover,.navlink.active{color:var(--text)}
+    .navlink:hover::after,.navlink.active::after{transform:scaleX(1)}
 
-/* projects */
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.pcard{background:linear-gradient(150deg,#132539,#0c1826);border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;min-height:290px}
-.pcard-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:26px}
-.pcard .type{font:600 10.5px var(--font-mono);color:var(--accent);letter-spacing:1px;border:1px solid var(--accent-dim);padding:4px 8px;border-radius:var(--radius)}
-.pcard .date{font:500 10.5px var(--font-mono);color:var(--muted-dim)}
-.pcard h3{font:600 22px var(--font-display);margin:0 0 4px;letter-spacing:-.4px}
-.pcard .client{font:500 12px var(--font-mono);color:var(--accent2);margin-bottom:12px}
-.pcard p{color:var(--muted);line-height:1.65;font-size:13.5px;margin:0}
-.pcard .tags{margin-top:auto;padding-top:20px;color:var(--muted-dim);font:500 11px var(--font-mono);letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center}
-.pcard a.plink{color:var(--accent2);text-decoration:none;font:600 11px var(--font-mono)}
-.pcard a.plink:hover{text-decoration:underline}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:rgba(255,255,255,.015)}
+    .lang button{
+      border:0;background:transparent;color:var(--muted);cursor:pointer;
+      font:700 10px var(--mono);letter-spacing:.4px;padding:8px 10px;
+      transition:background .2s ease,color .2s ease;
+    }
+    .lang button:hover{background:var(--panel-2);color:var(--text)}
+    .lang button.active{background:var(--accent-2);color:#07111c}
 
-/* credentials */
-.cred{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.cred-block h3{font:600 13px var(--font-mono);color:var(--muted-dim);letter-spacing:1.5px;text-transform:uppercase;margin:0 0 22px}
-.edu-item{border-inline-start:2px solid var(--accent2);padding:2px 0 2px 20px}
-[dir="rtl"] .edu-item{border-inline-start:0;border-inline-end:2px solid var(--accent2);padding:2px 20px 2px 0}
-.edu-item .deg{font:600 18px var(--font-display);margin-bottom:4px}
-.edu-item .sc{color:var(--muted);font-size:13.5px;margin-bottom:4px}
-.edu-item .dt{font:500 11.5px var(--font-mono);color:var(--muted-dim)}
-.cert-list{display:flex;flex-direction:column;gap:0}
-.cert-item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line-soft);gap:14px}
-.cert-item:first-child{padding-top:0}
-.cert-item .cn{font-size:14px;font-weight:500}
-.cert-item .cp{color:var(--muted-dim);font:500 11.5px var(--font-mono);white-space:nowrap}
-.langs{margin-top:36px}
-.lang-row{display:flex;align-items:center;gap:16px;margin-bottom:14px}
-.lang-row .ln{width:80px;font-size:13.5px;font-weight:500;flex-shrink:0}
-.lang-bar{flex:1;display:flex;gap:4px}
-.lang-bar i{height:8px;flex:1;background:var(--line);border-radius:2px}
-.lang-bar i.on{background:var(--accent2)}
-.lang-row .lv{font:500 11px var(--font-mono);color:var(--muted-dim);width:auto;flex-shrink:0}
+    .menu-toggle{
+      display:none;
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:var(--text);
+      border-radius:10px;
+      width:42px;height:42px;
+      cursor:pointer;
+      font:700 15px var(--mono);
+    }
 
-/* contact */
-.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
-.contact h2{font:600 46px/1.05 var(--font-display);margin:10px 0 16px;letter-spacing:-2px}
-.contact p.lede{color:var(--muted);font-size:16px;line-height:1.7;max-width:440px}
-.contact-links{display:flex;flex-direction:column;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
-.clink{background:var(--panel);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--text)}
-.clink:hover{background:var(--panel2)}
-.clink .k{font:600 10.5px var(--font-mono);color:var(--muted-dim);letter-spacing:1px;text-transform:uppercase}
-.clink .v{font:500 14px var(--font-mono)}
-.clink .go{color:var(--accent2)}
+    .mobile-nav{
+      display:none;
+      position:absolute;
+      top:78px;
+      inset-inline:0;
+      background:rgba(8,17,29,.98);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+      box-shadow:var(--shadow);
+    }
+    .mobile-nav.open{display:grid;gap:4px}
+    .mobile-nav a{padding:12px 13px;border-radius:9px;text-decoration:none;color:var(--muted);font:600 11px var(--mono)}
+    .mobile-nav a:hover{background:var(--panel-2);color:var(--text)}
 
-footer{padding:26px 0;color:var(--muted-dim);font-size:12.5px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line-soft);font-family:var(--font-mono)}
-.social a{color:var(--muted);text-decoration:none;margin-inline-start:20px;font-size:12.5px}
-.social a:hover{color:var(--accent2)}
+    /* ---------- general ---------- */
+    .section{padding:110px 0;border-top:1px solid var(--line-soft);position:relative}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:46px}
+    .section-label{display:flex;align-items:center;gap:10px;color:var(--accent-2);font:700 11px var(--mono);letter-spacing:2px;text-transform:uppercase}
+    .section-label::after{content:"";width:46px;height:1px;background:var(--line)}
+    .section h2{font:600 clamp(34px,5vw,56px)/1.02 var(--display);letter-spacing:-2.2px;margin:12px 0 0}
+    .section-sub{max-width:430px;color:var(--muted);font-size:14px;line-height:1.75;margin:0}
 
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}.status-pill .ping{animation:none}}
+    .eyebrow{color:var(--accent-2);font:700 11px var(--mono);letter-spacing:1.5px;text-transform:uppercase}
+    .kicker{color:var(--accent-2);font:700 11px var(--mono);letter-spacing:2px}
 
-@media(max-width:900px){
-  .skill-grid{grid-template-columns:1fr}
-  .cred{grid-template-columns:1fr;gap:44px}
-  .exp-card{grid-template-columns:1fr}
-  .exp-side{border-inline-end:0;border-bottom:1px solid var(--line-soft)}
-  .projects{grid-template-columns:1fr}
-  .titleblock{grid-template-columns:1fr 1fr}
-  .scroll-hint{display:block}
-}
-@media(max-width:750px){
-  nav .links{display:none}
-  .hero{grid-template-columns:1fr;padding:56px 0 70px;min-height:auto}
-  .portrait-wrap{justify-self:start}
-  .portrait{width:230px}
-  .about,.contact-grid{grid-template-columns:1fr;gap:30px}
-  .section-head{display:block}
-  .contact h2{font-size:36px}
-  .wrap{padding:0 20px}
-  .fact strong{font-size:22px}
-}
-</style></head>
+    .btn-row{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:11px;
+      border:1px solid var(--accent);
+      background:var(--accent);
+      color:#07111c;
+      text-decoration:none;
+      font:800 11px var(--mono);
+      letter-spacing:.3px;
+      transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,145,77,.15)}
+    .btn.alt{background:transparent;color:var(--text);border-color:var(--line)}
+    .btn.alt:hover{border-color:var(--accent-2);color:var(--accent-2);box-shadow:none}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.25,1)}
+    .reveal.in{opacity:1;transform:none}
+    .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+    /* ---------- hero ---------- */
+    .hero{
+      min-height:690px;
+      padding:70px 0 62px;
+      display:grid;
+      grid-template-columns:minmax(0,1.06fr) minmax(360px,.94fr);
+      gap:70px;
+      align-items:center;
+      position:relative;
+    }
+    .hero-copy{position:relative;z-index:2}
+    .status-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.015);
+      color:var(--muted);
+      padding:7px 12px;
+      border-radius:100px;
+      font:600 10px var(--mono);
+      letter-spacing:.4px;
+      margin-bottom:20px;
+    }
+    .ping{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 0 0 rgba(103,227,154,.45);animation:ping 2s infinite}
+    @keyframes ping{0%{box-shadow:0 0 0 0 rgba(103,227,154,.45)}70%{box-shadow:0 0 0 7px rgba(103,227,154,0)}100%{box-shadow:0 0 0 0 rgba(103,227,154,0)}}
+
+    .hero h1{font:600 clamp(52px,7vw,90px)/.97 var(--display);letter-spacing:-4px;margin:12px 0 24px;max-width:820px}
+    .hero h1 span{color:var(--accent)}
+    .hero .lede{max-width:700px;color:var(--muted);font-size:17px;line-height:1.85;margin:0 0 30px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:14px 18px;margin-top:26px;color:var(--muted-2);font:500 10.5px var(--mono)}
+    .hero-meta strong{color:var(--text);font-weight:700}
+    .meta-sep{color:var(--line)}
+
+    .hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+    .hero-orbit{position:absolute;width:470px;aspect-ratio:1;border:1px solid rgba(81,200,244,.10);border-radius:50%;animation:slow-spin 24s linear infinite}
+    .hero-orbit::before,.hero-orbit::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%}
+    .hero-orbit::before{top:16%;right:5%;background:var(--accent-2);box-shadow:0 0 22px rgba(81,200,244,.45)}
+    .hero-orbit::after{bottom:10%;left:14%;background:var(--accent);box-shadow:0 0 22px rgba(255,145,77,.45)}
+    @keyframes slow-spin{to{transform:rotate(360deg)}}
+
+    .device-stage{
+      position:relative;
+      width:min(390px,92vw);
+      min-height:500px;
+      display:grid;
+      place-items:center;
+    }
+
+    .profile-frame{
+      position:absolute;
+      inset:22px 14px auto auto;
+      width:250px;
+      aspect-ratio:1/1.18;
+      border:1px solid var(--line);
+      background:linear-gradient(145deg,var(--panel-2),var(--bg-elev));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transform:rotate(2.5deg);
+    }
+    .profile-frame::before{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(81,200,244,.08),transparent 42%,rgba(255,145,77,.08))}
+    .profile-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.18) contrast(1.05);mix-blend-mode:screen;opacity:.88}
+    .profile-fallback{display:flex;align-items:center;justify-content:center;position:absolute;inset:0;font:700 74px var(--display);color:var(--accent-2);background:radial-gradient(circle at 40% 20%,#183451,#091522 72%)}
+    .profile-caption{position:absolute;left:14px;bottom:13px;right:14px;display:flex;justify-content:space-between;gap:8px;font:700 9px var(--mono);letter-spacing:.7px;color:var(--text)}
+    .profile-caption span:last-child{color:var(--accent-2)}
+
+    .terminal-card{
+      position:absolute;
+      left:0;
+      bottom:2px;
+      width:300px;
+      border:1px solid var(--line);
+      background:rgba(10,20,32,.92);
+      backdrop-filter:blur(16px);
+      box-shadow:var(--shadow);
+      border-radius:15px;
+      overflow:hidden;
+      transform:rotate(-3deg);
+    }
+    .terminal-head{height:36px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line-soft);background:var(--panel-2)}
+    .terminal-head i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+    .terminal-head strong{margin-inline:auto;color:var(--muted);font:600 9px var(--mono);letter-spacing:.5px}
+    .terminal-body{padding:18px 17px 20px;font:500 10.5px/1.85 var(--mono);color:var(--muted)}
+    .code-line{display:flex;gap:9px}.code-line .n{width:16px;color:var(--muted-2);text-align:right}.code-line .txt{color:var(--text)}
+    .code-line .blue{color:var(--accent-2)}.code-line .orange{color:var(--accent)}.code-line .green{color:var(--success)}
+
+    .visual-tag{position:absolute;right:-4px;bottom:78px;background:var(--accent);color:#07111c;padding:9px 12px;border-radius:8px;font:800 9px var(--mono);letter-spacing:.8px;transform:rotate(3deg);box-shadow:0 10px 24px rgba(255,145,77,.12)}
+    .visual-coord{position:absolute;top:44px;left:-10px;color:var(--accent-2);font:600 9px var(--mono);letter-spacing:.6px}
+
+    .signal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:56px}
+    .signal{border:1px solid var(--line-soft);background:rgba(255,255,255,.01);padding:15px 16px;border-radius:10px}
+    .signal strong{display:block;font:700 14px var(--display);margin-bottom:3px}.signal span{font-size:10.5px;color:var(--muted)}
+
+    /* ---------- title strip ---------- */
+    .title-strip{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1px;
+      border-top:1px solid var(--line-soft);
+      border-bottom:1px solid var(--line-soft);
+      background:var(--line-soft);
+    }
+    .strip-item{background:var(--bg);padding:18px 20px}
+    .strip-item .k{display:block;color:var(--muted-2);font:700 8.5px var(--mono);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px}
+    .strip-item .v{font:700 12px var(--mono);color:var(--text)}
+
+    /* ---------- about ---------- */
+    .about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr);gap:64px;align-items:start}
+    .about-copy p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.9}
+    .about-copy p+p{margin-top:18px}
+    .about-copy .lead-mark{color:var(--text)}
+
+    .fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden}
+    .fact{background:var(--panel);padding:23px;min-height:135px;transition:transform .24s ease,background .24s ease}
+    .fact:hover{background:var(--panel-2);transform:translateY(-2px)}
+    .fact strong{display:block;font:600 31px var(--display);letter-spacing:-1px;color:var(--accent-2);margin-bottom:7px}
+    .fact span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+
+    .featured-shell{margin-top:74px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(17,34,53,.94),rgba(9,18,29,.95));box-shadow:var(--shadow);overflow:hidden}
+    .featured-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:28px 28px 24px;border-bottom:1px solid var(--line-soft)}
+    .featured-top .mini{font:700 9px var(--mono);letter-spacing:1.3px;color:var(--accent);text-transform:uppercase}
+    .featured-top h3{margin:8px 0 5px;font:600 28px var(--display);letter-spacing:-.8px}
+    .featured-top p{margin:0;color:var(--muted);font-size:13px}
+    .featured-badge{border:1px solid rgba(81,200,244,.25);color:var(--accent-2);padding:8px 10px;border-radius:9px;font:700 9px var(--mono);white-space:nowrap}
+
+    .featured-body{display:grid;grid-template-columns:1.15fr .85fr;gap:0}
+    .featured-visual{min-height:380px;padding:34px;border-inline-end:1px solid var(--line-soft);display:grid;place-items:center;background:radial-gradient(circle at 28% 25%,rgba(81,200,244,.07),transparent 35%),radial-gradient(circle at 80% 85%,rgba(255,145,77,.06),transparent 35%)}
+
+    .phone-cluster{display:flex;align-items:flex-end;gap:18px;transform:translateY(4px)}
+    .phone{width:142px;height:280px;border:1px solid #2e455b;border-radius:24px;background:#07121f;padding:8px;box-shadow:0 24px 50px rgba(0,0,0,.32)}
+    .phone.small{width:124px;height:245px;opacity:.9;transform:translateY(24px)}
+    .phone-screen{height:100%;border-radius:17px;overflow:hidden;background:linear-gradient(180deg,#12283f 0%,#0a1522 100%);position:relative}
+    .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:48px;height:10px;border-radius:50px;background:#07111b;z-index:2}
+    .phone-topbar{height:38px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;padding:11px 10px 0;font:700 7px var(--mono);color:#cbd7e3}
+    .phone-hero{margin:11px 10px 7px;border-radius:11px;padding:11px 10px;background:linear-gradient(145deg,rgba(81,200,244,.18),rgba(81,200,244,.03));border:1px solid rgba(81,200,244,.18)}
+    .phone-hero span{display:block;color:var(--accent-2);font:700 7px var(--mono);margin-bottom:5px}.phone-hero strong{font:700 13px var(--display);letter-spacing:-.3px}
+    .phone-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:7px 10px}.phone-tile{height:64px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);border-radius:9px;padding:9px}.phone-tile i{display:block;width:16px;height:16px;border-radius:5px;background:rgba(255,145,77,.16);border:1px solid rgba(255,145,77,.24);margin-bottom:6px}.phone-tile b{font:700 7px var(--mono);color:#c6d3df}.map-box{margin:3px 10px 10px;border-radius:10px;height:86px;background:linear-gradient(135deg,#0f2437,#0b1725);border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden}.map-box::before,.map-box::after{content:"";position:absolute;background:rgba(81,200,244,.08)}.map-box::before{width:150%;height:1px;left:-25%;top:60%;transform:rotate(-18deg)}.map-box::after{width:1px;height:150%;left:58%;top:-25%;transform:rotate(25deg)}.map-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(255,145,77,.12);left:57%;top:42%}
+
+    .featured-copy{padding:34px}
+    .featured-copy h4{font:600 13px var(--mono);letter-spacing:1px;color:var(--muted-2);text-transform:uppercase;margin:0 0 18px}
+    .feature-list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+    .feature-list li{display:flex;gap:11px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.65}
+    .feature-list li::before{content:"↗";color:var(--accent);font:700 12px var(--mono);margin-top:2px}
+    .stack-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
+    .stack-chip{border:1px solid var(--line);background:var(--bg-elev);color:var(--text);padding:7px 9px;border-radius:8px;font:500 9.5px var(--mono)}
+    .featured-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-soft)}
+    .featured-foot .role{font:600 10px var(--mono);color:var(--muted-2)}
+    .text-link{color:var(--accent-2);text-decoration:none;font:700 10px var(--mono)}
+    .text-link:hover{text-decoration:underline}
+
+    /* ---------- architecture diagram ---------- */
+    .diagram-block{margin-top:74px}
+    .fig-caption{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .fig-caption .tag{color:var(--accent);font:700 9px var(--mono);letter-spacing:1px;border:1px solid rgba(255,145,77,.35);padding:5px 8px;border-radius:8px}
+    .fig-caption p{margin:0;color:var(--muted);font-size:13px}
+    .diagram-frame{border:1px solid var(--line);border-radius:15px;background:var(--panel);padding:22px;overflow:hidden}
+    .diagram-scroll{overflow:auto}
+    .diagram-scroll svg{width:100%;min-width:900px;height:auto;display:block}
+    .scroll-hint{display:none;text-align:center;color:var(--muted-2);font:500 9.5px var(--mono);margin-top:10px}
+    .svg-title{font:700 15px var(--display);fill:var(--text)}
+    .svg-sub{font:500 10px var(--mono);fill:var(--muted)}
+    .svg-chip{font:500 9.5px var(--mono);fill:var(--accent-2)}
+    .svg-label{font:600 9.5px var(--mono);fill:var(--muted-2);letter-spacing:.5px}
+
+    /* ---------- skills ---------- */
+    .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .skill-card{position:relative;border:1px solid var(--line);background:linear-gradient(150deg,var(--panel-2),var(--panel));border-radius:15px;padding:28px;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+    .skill-card:hover{transform:translateY(-5px);border-color:#2c4862}
+    .skill-card::after{content:"";position:absolute;right:-60px;bottom:-60px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(81,200,244,.07),transparent 68%);pointer-events:none}
+    .skill-card:nth-child(2)::after{background:radial-gradient(circle,rgba(255,145,77,.07),transparent 68%)}
+    .skill-card:nth-child(3)::after{background:radial-gradient(circle,rgba(103,227,154,.055),transparent 68%)}
+    .skill-num{font:700 10px var(--mono);color:var(--muted-2);letter-spacing:1px}
+    .skill-card h3{font:600 23px var(--display);margin:14px 0 8px;letter-spacing:-.7px}
+    .skill-card p{font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 20px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:7px 9px;border:1px solid var(--line);background:var(--bg);border-radius:8px;color:#dce7f1;font:500 9.5px var(--mono)}
+    .skill-card:nth-child(1) .chip{border-color:#1d4637;color:#8bd6b5}.skill-card:nth-child(2) .chip{border-color:#2b3d60;color:#9db8ee}.skill-card:nth-child(3) .chip{border-color:#50452d;color:#ddb97e}
+
+    /* ---------- experience ---------- */
+    .experience-card{display:grid;grid-template-columns:250px 1fr;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--panel)}
+    .exp-side{background:var(--panel-2);padding:28px;border-inline-end:1px solid var(--line-soft)}
+    .exp-duration{display:block;color:var(--accent-2);font:700 10px var(--mono);letter-spacing:.4px;margin-bottom:11px}
+    .exp-side h3{margin:0 0 7px;font:600 22px var(--display);letter-spacing:-.7px}
+    .exp-side .co{color:var(--muted);font-size:12.5px;line-height:1.6}
+    .exp-side .role-tag{display:inline-flex;margin-top:18px;border:1px solid rgba(81,200,244,.2);color:var(--accent-2);border-radius:8px;padding:6px 8px;font:700 9px var(--mono)}
+    .exp-main{padding:28px 30px}
+    .exp-list{display:grid;gap:16px;margin:0;padding:0;list-style:none}
+    .exp-list li{position:relative;padding-inline-start:22px;color:var(--muted);font-size:14px;line-height:1.75}
+    .exp-list li::before{content:"→";position:absolute;inset-inline-start:0;top:0;color:var(--accent);font:700 12px var(--mono)}
+    .exp-list b{color:var(--text);font-weight:700}
+
+    /* ---------- projects ---------- */
+    .projects{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:14px}
+    .project-card{position:relative;display:flex;flex-direction:column;min-height:350px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(155deg,#112338,#0c1827);padding:25px;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+    .project-card:hover{transform:translateY(-5px);border-color:#304963}
+    .project-card.featured{background:linear-gradient(155deg,#162e45,#0b1725)}
+    .project-card.featured::before{content:"";position:absolute;inset:auto -10% -25% auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(81,200,244,.09),transparent 66%)}
+    .project-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:34px}
+    .project-type{border:1px solid rgba(255,145,77,.35);color:var(--accent);padding:5px 8px;border-radius:8px;font:700 9px var(--mono);letter-spacing:.8px;text-transform:uppercase}
+    .project-date{color:var(--muted-2);font:500 9px var(--mono)}
+    .project-card h3{margin:0 0 5px;font:600 24px var(--display);letter-spacing:-.7px}
+    .project-client{color:var(--accent-2);font:600 9.5px var(--mono);margin-bottom:14px}
+    .project-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.72}
+    .project-tags{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:22px;border-top:1px solid var(--line-soft)}
+    .project-tags span{color:var(--muted-2);font:600 8.5px var(--mono);letter-spacing:.45px}
+    .project-link{color:var(--accent-2);text-decoration:none;font:700 9.5px var(--mono);white-space:nowrap}
+    .project-link:hover{text-decoration:underline}
+
+    /* ---------- credentials ---------- */
+    .credentials{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+    .cred-block h3{margin:0 0 18px;color:var(--muted-2);font:700 10px var(--mono);letter-spacing:1.4px;text-transform:uppercase}
+    .edu-item{border-inline-start:2px solid var(--accent-2);padding:2px 0 4px 20px}
+    [dir="rtl"] .edu-item{border-inline-start:0;border-inline-end:2px solid var(--accent-2);padding:2px 20px 4px 0}
+    .edu-degree{font:600 19px var(--display);margin-bottom:6px}
+    .edu-school{color:var(--muted);font-size:13px;margin-bottom:4px}.edu-date{color:var(--muted-2);font:500 10px var(--mono)}
+    .cert-list{display:grid;gap:0}
+    .cert-item{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid var(--line-soft)}
+    .cert-item:first-child{padding-top:0}.cert-name{font-size:13px;font-weight:600}.cert-provider{color:var(--muted-2);font:500 9.5px var(--mono);white-space:nowrap}
+    .langs{margin-top:38px}.lang-row{display:grid;grid-template-columns:82px 1fr auto;gap:15px;align-items:center;margin-bottom:13px}
+    .lang-name{font-size:13px;font-weight:600}.lang-bar{display:flex;gap:4px}.lang-bar i{height:7px;flex:1;border-radius:3px;background:var(--line)}.lang-bar i.on{background:var(--accent-2)}.lang-level{color:var(--muted-2);font:500 9px var(--mono);white-space:nowrap}
+
+    /* ---------- contact ---------- */
+    .contact-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:55px;align-items:center}
+    .contact h2{font:600 clamp(42px,6vw,70px)/1 var(--display);letter-spacing:-3px;margin:12px 0 18px}
+    .contact h2 span{color:var(--accent)}
+    .contact .lede{max-width:530px;color:var(--muted);font-size:15px;line-height:1.8;margin:0}
+    .availability{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.availability span{padding:7px 9px;border-radius:8px;border:1px solid var(--line);background:var(--panel);font:500 9px var(--mono);color:var(--muted)}
+    .contact-links{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden}
+    .contact-link{display:flex;justify-content:space-between;align-items:center;gap:14px;text-decoration:none;background:var(--panel);padding:18px 20px;transition:background .2s ease,transform .2s ease}
+    .contact-link:hover{background:var(--panel-2)}
+    .contact-key{color:var(--muted-2);font:700 9.5px var(--mono);letter-spacing:1px;text-transform:uppercase}.contact-value{font:600 12px var(--mono);text-align:right}.contact-go{color:var(--accent-2);margin-inline-start:8px}
+
+    footer{padding:26px 0 36px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--muted-2);font:500 9.5px var(--mono)}
+    .footer-links{display:flex;gap:20px}.footer-links a{text-decoration:none;color:var(--muted)}.footer-links a:hover{color:var(--accent-2)}
+
+    /* ---------- RTL ---------- */
+    [dir="rtl"] body{font-family:var(--body)}
+    [dir="rtl"] .hero h1{letter-spacing:-2px}
+    [dir="rtl"] .hero-meta{font-family:var(--mono)}
+
+    /* ---------- responsive ---------- */
+    @media (max-width:1080px){
+      .navlinks{gap:18px}
+      .hero{grid-template-columns:1fr .82fr;gap:38px}
+      .hero h1{font-size:clamp(48px,7vw,76px)}
+      .featured-body{grid-template-columns:1fr}
+      .featured-visual{border-inline-end:0;border-bottom:1px solid var(--line-soft);min-height:350px}
+      .projects{grid-template-columns:1fr 1fr}
+      .project-card.featured{grid-column:1/-1;min-height:320px}
+    }
+
+    @media (max-width:900px){
+      .wrap{width:min(var(--max),calc(100% - 36px))}
+      .navlinks{display:none}
+      .menu-toggle{display:inline-grid;place-items:center}
+      .hero{grid-template-columns:1fr;padding-top:58px;min-height:0}
+      .hero-visual{min-height:520px}
+      .about-grid,.contact-wrap,.credentials{grid-template-columns:1fr}
+      .skill-grid{grid-template-columns:1fr}
+      .experience-card{grid-template-columns:1fr}
+      .exp-side{border-inline-end:0;border-bottom:1px solid var(--line-soft)}
+      .title-strip{grid-template-columns:1fr 1fr}
+      .scroll-hint{display:block}
+    }
+
+    @media (max-width:680px){
+      .wrap{width:min(var(--max),calc(100% - 28px))}
+      nav{height:76px}
+      .nav-actions{gap:7px}
+      .lang button{padding:7px 8px}
+      .hero{padding:46px 0 58px}
+      .hero h1{font-size:clamp(42px,14vw,64px);letter-spacing:-2.7px}
+      .hero .lede{font-size:15px;line-height:1.75}
+      .hero-meta{gap:9px 12px}
+      .hero-visual{min-height:475px}
+      .hero-orbit{width:350px}
+      .device-stage{min-height:450px}
+      .profile-frame{width:205px;right:8px}
+      .terminal-card{left:0;width:270px}
+      .visual-tag{right:4px;bottom:65px}
+      .visual-coord{left:2px;top:35px}
+      .signal-row{grid-template-columns:1fr;margin-top:34px}
+      .section{padding:82px 0}
+      .section-head{display:block;margin-bottom:35px}.section-sub{margin-top:16px}
+      .section h2{font-size:39px;letter-spacing:-1.5px}
+      .fact-grid{grid-template-columns:1fr 1fr}
+      .fact{min-height:120px;padding:18px}.fact strong{font-size:26px}
+      .featured-top{padding:22px;display:block}.featured-badge{display:inline-flex;margin-top:15px}
+      .featured-visual{padding:25px;min-height:290px}
+      .phone{width:112px;height:226px}.phone.small{width:98px;height:202px}
+      .featured-copy{padding:24px}
+      .featured-foot{display:grid;grid-template-columns:1fr}
+      .project-card,.project-card.featured{grid-column:auto;min-height:320px}
+      .projects{grid-template-columns:1fr}
+      .cert-item{display:block}.cert-provider{display:block;margin-top:6px}
+      .lang-row{grid-template-columns:72px 1fr}.lang-level{grid-column:2}
+      .contact-link{padding:16px}.contact-value{font-size:10.5px}
+      footer{display:grid}
+      .footer-links{gap:15px}
+    }
+
+    @media (max-width:430px){
+      .lang button{padding:7px 7px;font-size:9px}
+      .menu-toggle{width:39px;height:39px}
+      .title-strip{grid-template-columns:1fr}
+      .fact-grid{grid-template-columns:1fr}
+      .phone-cluster{gap:10px}.phone{width:104px;height:216px}.phone.small{width:88px;height:182px}
+      .terminal-card{width:250px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
 <body>
-<div class="wrap">
+  <div class="top-progress" id="topProgress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-<nav>
-  <div class="logo"><span class="dot"></span>ali<b>.</b>dev</div>
-  <div class="links">
-    <a class="navlink" href="#about" data-i="aboutNav"><span>01</span>About</a>
-    <a class="navlink" href="#skills" data-i="skillsNav"><span>02</span>Skills</a>
-    <a class="navlink" href="#experience" data-i="experienceNav"><span>03</span>Experience</a>
-    <a class="navlink" href="#work" data-i="workNav"><span>04</span>Projects</a>
-    <a class="navlink" href="#contact" data-i="contactNav"><span>06</span>Contact</a>
-  </div>
-  <div class="navright">
-    <div class="lang">
-      <button class="active" data-lang="en">EN</button>
-      <button data-lang="fa">FA</button>
-      <button data-lang="de">DE</button>
-    </div>
-  </div>
-</nav>
+  <div class="wrap site-shell">
+    <nav aria-label="Primary navigation">
+      <a class="logo" href="#top" aria-label="Ali Eghbali home"><span class="logo-dot"></span>ali<b>.</b>dev</a>
 
-<main>
-<header class="hero">
-  <div>
-    <div class="status-pill"><span class="ping"></span><span data-i="statusPill">Open to remote &amp; relocation</span></div>
-    <div class="eyebrow" data-i="eyebrow">Mobile &amp; Backend Engineer · Tehran, Iran</div>
-    <h1 data-i="title">From blueprint<br>to <span>production.</span></h1>
-    <p class="lede" data-i="intro">I'm Ali Eghbali, a Flutter specialist and ASP.NET Core developer. Over the past two years I've taken a flagship enterprise mobile platform from architecture sketch to shipped product — UI, biometric security, offline sync, and the backend behind it.</p>
-    <div class="buttons">
-      <a class="btn" href="#work" data-i="cta">View my work ↗</a>
-      <a class="btn alt" href="mailto:kaspianlive17@gmail.com" data-i="ctaSecondary">Get in touch</a>
-    </div>
-    <div class="hero-meta">
-      <span><b data-i="metaExp">2+ yrs</b> <span data-i="metaExpLabel">Flutter in production</span></span>
-      <span class="mono">·</span>
-      <span><b>B1</b> <span data-i="metaEnglish">English (technical)</span></span>
-      <span class="mono">·</span>
-      <span data-i="metaAvail">Available on-site or remote</span>
-    </div>
-  </div>
-  <div class="portrait-wrap">
-    <div class="portrait-coord">35.47°N 51.68°E — PAKDASHT</div>
-    <div class="portrait" id="portrait">
-      <img src="profile.jpg" alt="Ali Eghbali" onerror="this.parentElement.classList.add('no-img')">
-      <div class="fallback">AE</div>
-    </div>
-    <div class="portrait-tag">FLUTTER × .NET × AI</div>
-  </div>
-</header>
-
-<div class="titleblock">
-  <div class="tb-item"><span class="k" data-i="tbName">Name</span><span class="v">Ali Eghbali</span></div>
-  <div class="tb-item"><span class="k" data-i="tbRole">Role</span><span class="v" data-i="tbRoleVal">Flutter / .NET</span></div>
-  <div class="tb-item"><span class="k" data-i="tbBase">Based in</span><span class="v" data-i="tbBaseVal">Tehran, Iran</span></div>
-  <div class="tb-item"><span class="k" data-i="tbRev">Revision</span><span class="v">2.0 · 2026</span></div>
-</div>
-
-<section id="about">
-  <div class="section-head">
-    <div><div class="kicker">01 / <span data-i="aboutNav">ABOUT</span></div><h2 data-i="aboutTitle">A developer who owns<br>the whole stack.</h2></div>
-    <p class="section-sub" data-i="aboutSub">Architecture, UI, security and data — I like being accountable for how all of it fits together.</p>
-  </div>
-  <div class="about reveal">
-    <div>
-      <p data-i="aboutText1">I'm a software engineer who has spent the last two years going deep on cross-platform mobile development with Flutter, while building out backend skills in ASP.NET Core. I care about clean architecture — SOLID principles, clear separation of concerns, and code that's built to be maintained, not just shipped.</p>
-      <p data-i="aboutText2">On Avan, our flagship enterprise app, I owned everything end to end: UI/UX, state management, offline-first data sync, biometric security with on-device AI, and live GIS tracking. I work best in collaborative, on-site engineering teams, and I'm always picking up something new.</p>
-      <p data-i="aboutText3">Currently based in Tehran, Iran, and completing a Bachelor's in Software Engineering alongside full-time work. Native Persian speaker with strong technical English (B1 — reading and writing).</p>
-    </div>
-    <div class="facts">
-      <div class="fact"><strong>2+</strong><span data-i="fact1">Years shipping Flutter apps in production</span></div>
-      <div class="fact"><strong>1</strong><span data-i="fact2">Flagship enterprise platform owned end-to-end</span></div>
-      <div class="fact"><strong>.NET</strong><span data-i="fact3">ASP.NET Core backend engineering</span></div>
-      <div class="fact"><strong>3</strong><span data-i="fact4">Languages spoken on this site</span></div>
-    </div>
-  </div>
-
-  <div class="diagram-block reveal">
-    <div class="fig-caption">
-      <span class="tag">FIG. 01</span>
-      <p data-i="figCaption">How a typical build fits together — mobile client, security layer, and the backend that syncs it all.</p>
-    </div>
-    <div class="diagram-frame corners">
-      <span class="c2"></span><span class="c3"></span>
-      <div class="diagram-scroll">
-        <svg viewBox="0 0 960 380" xmlns="http://www.w3.org/2000/svg">
-          <!-- corner crosses -->
-          <g class="svg-cross"><path d="M8 16h16M16 8v16"/></g>
-          <g class="svg-cross"><path d="M936 16h16M944 8v16" transform="translate(0,0)"/></g>
-          <g class="svg-cross"><path d="M8 356h16M16 348v16"/></g>
-          <g class="svg-cross"><path d="M936 356h16M944 348v16"/></g>
-
-          <!-- connector: biometric -> mobile -->
-          <line x1="145" y1="94" x2="145" y2="140" class="svg-line"/>
-          <path d="M145 140l-5 -9h10z" fill="var(--line)"/>
-          <!-- connector: mobile -> gis -->
-          <line x1="145" y1="244" x2="145" y2="290" class="svg-line"/>
-          <path d="M145 290l-5 -9h10z" fill="var(--line)"/>
-          <!-- connector: mobile <-> api (offline sync) -->
-          <line x1="252" y1="190" x2="518" y2="190" class="svg-dash"/>
-          <path d="M252 190l9 -5v10z" fill="var(--accent2)"/>
-          <path d="M518 190l-9 -5v10z" fill="var(--accent2)"/>
-          <rect x="332" y="163" width="146" height="20" fill="var(--panel)"/>
-          <text x="405" y="177" text-anchor="middle" class="svg-label">OFFLINE-FIRST SYNC</text>
-          <!-- connector: api -> db -->
-          <line x1="732" y1="190" x2="798" y2="190" class="svg-line"/>
-          <path d="M798 190l-9 -5v10z" fill="var(--line)"/>
-
-          <!-- biometric box -->
-          <rect x="40" y="20" width="210" height="74" fill="var(--panel2)" stroke="var(--line)"/>
-          <text x="58" y="46" class="svg-box-title">BIOMETRIC + AI</text>
-          <text x="58" y="65" class="svg-chip">TFLite · MobileFaceNet</text>
-          <text x="58" y="81" class="svg-chip">Liveness detection</text>
-
-          <!-- mobile client box (main) -->
-          <rect x="40" y="140" width="210" height="104" fill="var(--panel2)" stroke="var(--accent2)" stroke-width="1.4"/>
-          <text x="58" y="168" class="svg-box-title">MOBILE CLIENT</text>
-          <text x="58" y="187" class="svg-box-sub">Flutter · Dart</text>
-          <text x="58" y="207" class="svg-chip">BLoC · Provider · GetX</text>
-          <text x="58" y="224" class="svg-chip">Hive · SQLite</text>
-
-          <!-- gis box -->
-          <rect x="40" y="290" width="210" height="70" fill="var(--panel2)" stroke="var(--line)"/>
-          <text x="58" y="316" class="svg-box-title">GIS + BACKGROUND</text>
-          <text x="58" y="335" class="svg-chip">Live location · map sync</text>
-
-          <!-- api box -->
-          <rect x="520" y="140" width="210" height="104" fill="var(--panel2)" stroke="var(--line)"/>
-          <text x="538" y="168" class="svg-box-title">BACKEND API</text>
-          <text x="538" y="187" class="svg-box-sub">ASP.NET Core MVC</text>
-          <text x="538" y="207" class="svg-chip">EF Core · T-SQL</text>
-          <text x="538" y="224" class="svg-chip">Razor Pages · REST</text>
-
-          <!-- db cylinder -->
-          <g>
-            <path d="M800 158 a60 12 0 0 1 120 0 v56 a60 12 0 0 1 -120 0 z" fill="var(--panel2)" stroke="var(--line)"/>
-            <ellipse cx="860" cy="158" rx="60" ry="12" fill="var(--panel2)" stroke="var(--line)"/>
-            <text x="860" y="196" text-anchor="middle" class="svg-box-title" font-size="13">SQL SERVER</text>
-            <text x="860" y="214" text-anchor="middle" class="svg-chip">T-SQL</text>
-          </g>
-        </svg>
+      <div class="navlinks">
+        <a class="navlink active" data-section="about" href="#about"><span>01</span><span data-i="aboutNav">ABOUT</span></a>
+        <a class="navlink" data-section="skills" href="#skills"><span>02</span><span data-i="skillsNav">SKILLS</span></a>
+        <a class="navlink" data-section="experience" href="#experience"><span>03</span><span data-i="experienceNav">EXPERIENCE</span></a>
+        <a class="navlink" data-section="work" href="#work"><span>04</span><span data-i="workNav">PROJECTS</span></a>
+        <a class="navlink" data-section="credentials" href="#credentials"><span>05</span><span data-i="credNav">CREDENTIALS</span></a>
+        <a class="navlink" data-section="contact" href="#contact"><span>06</span><span data-i="contactNav">CONTACT</span></a>
       </div>
-      <div class="scroll-hint" data-i="scrollHint">← scroll to see the full diagram →</div>
-    </div>
-  </div>
-</section>
 
-<section id="skills">
-  <div class="section-head">
-    <div><div class="kicker">02 / <span data-i="skillsNav">SKILLS</span></div><h2 data-i="skillsTitle">Tools I build with.</h2></div>
-    <p class="section-sub" data-i="skillsSub">Grouped by where they live in the stack, not just listed.</p>
-  </div>
-  <div class="skill-grid reveal">
-    <div class="skill-card">
-      <span class="num">01</span>
-      <h3 data-i="catMobileTitle">Mobile &amp; Flutter</h3>
-      <p data-i="catMobileDesc">Cross-platform apps, from state architecture down to on-device storage.</p>
-      <div class="chips">
-        <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">BLoC</span>
-        <span class="chip">Provider</span><span class="chip">GetX</span><span class="chip">Hive</span>
-        <span class="chip">SQLite</span><span class="chip">Background Services</span>
-        <span class="chip">GIS / Maps</span><span class="chip">Biometric Auth</span><span class="chip">TFLite</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <span class="num">02</span>
-      <h3 data-i="catBackendTitle">Backend &amp; .NET</h3>
-      <p data-i="catBackendDesc">APIs and data layers built to stay maintainable as they grow.</p>
-      <div class="chips">
-        <span class="chip">ASP.NET Core MVC</span><span class="chip">C#</span><span class="chip">Entity Framework Core</span>
-        <span class="chip">MS SQL Server</span><span class="chip">T-SQL</span><span class="chip">Razor Pages</span>
-        <span class="chip">RESTful APIs</span><span class="chip">FastAPI</span><span class="chip">JWT Auth</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <span class="num">03</span>
-      <h3 data-i="catPracticesTitle">Engineering Practices</h3>
-      <p data-i="catPracticesDesc">The habits behind the code, not just the code itself.</p>
-      <div class="chips">
-        <span class="chip">SOLID Principles</span><span class="chip">Design Patterns</span>
-        <span class="chip">Clean Architecture</span><span class="chip">Repository Pattern</span>
-        <span class="chip">OOP</span><span class="chip">Agile / Scrum</span><span class="chip">Git / GitHub</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="section-head">
-    <div><div class="kicker">03 / <span data-i="experienceNav">EXPERIENCE</span></div><h2 data-i="expTitle">Where I've built this.</h2></div>
-  </div>
-  <div class="exp-card reveal">
-    <div class="exp-side">
-      <span class="exp-duration">JUN 2024 — JUN 2026</span>
-      <h3 data-i="roleTitle">Mobile &amp; Full-Stack Developer</h3>
-      <div class="co">Pishro Atieh · Tehran, Iran</div>
-    </div>
-    <div class="exp-main">
-      <ul class="exp-list" data-i="expBullets">
-        <li><b>End-to-end app engineering:</b> spearheaded full-lifecycle development for Avan, Pishro Atieh's flagship enterprise mobile app — UI/UX, state management architecture, offline caching, and background services.</li>
-        <li><b>Biometric security &amp; AI:</b> implemented fingerprint authentication and integrated TFLite MobileFaceNet models with a custom eye-movement liveness check.</li>
-        <li><b>Maps &amp; background services:</b> built background location tracking and interactive GIS map integration for real-time field tracking and data sync.</li>
-        <li><b>Architecture:</b> enforced SOLID principles and clean separation of concerns — Repository Pattern, structured state management — for testable, maintainable code.</li>
-        <li><b>Data sync:</b> engineered offline-first synchronization bridging local SQLite/Hive storage with a SQL Server backend, for uninterrupted offline use.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="section-head">
-    <div><div class="kicker">04 / <span data-i="workNav">PROJECTS</span></div><h2 data-i="workTitle">Things I've shipped.</h2></div>
-  </div>
-  <div class="projects reveal">
-    <article class="pcard">
-      <div class="pcard-top"><span class="type" data-i="proj1Type">Commercial</span><span class="date">MAY 2025 — <span data-i="present">Present</span></span></div>
-      <h3>Avan</h3>
-      <div class="client">Client: Pishro Atieh</div>
-      <p data-i="proj1Desc">Architected and built the complete Avan mobile product across Persian and English locales — UI, biometric security flows, background processing, GIS integration, and responsive layouts.</p>
-      <div class="tags"><span>FLUTTER · BIOMETRICS · GIS</span><a class="plink" href="https://avan.pishroatieh.com" target="_blank" rel="noopener">avan.pishroatieh.com ↗</a></div>
-    </article>
-    <article class="pcard">
-      <div class="pcard-top"><span class="type" data-i="proj2Type">Open Source</span><span class="date">MAY 2025</span></div>
-      <h3 data-i="proj2Name">Full-Stack Blog System</h3>
-      <div class="client">github.com/kaspian021</div>
-      <p data-i="proj2Desc">An end-to-end blogging platform: Flutter clients talking to a FastAPI backend, with RESTful API design and JWT authentication.</p>
-      <div class="tags"><span>FLUTTER · FASTAPI · JWT</span><a class="plink" href="https://github.com/kaspian021/Blog-Sys" target="_blank" rel="noopener">Blog-Sys ↗</a></div>
-    </article>
-    <article class="pcard">
-      <div class="pcard-top"><span class="type" data-i="proj3Type">Personal</span><span class="date">2025 — 2026</span></div>
-      <h3>SFileCloud</h3>
-      <div class="client mono" style="color:var(--muted-dim)" data-i="proj3ClientLabel">Personal project</div>
-      <p data-i="proj3Desc">A security-focused mobile cloud storage interface with biometric authentication and on-device TFLite face recognition for protected access.</p>
-      <div class="tags"><span>FLUTTER · TFLITE · SECURITY</span></div>
-    </article>
-  </div>
-</section>
-
-<section id="credentials">
-  <div class="section-head">
-    <div><div class="kicker">05 / <span data-i="credNav">CREDENTIALS</span></div><h2 data-i="credTitle">Education &amp; certifications.</h2></div>
-  </div>
-  <div class="cred reveal">
-    <div class="cred-block">
-      <h3 data-i="eduHeading">Education</h3>
-      <div class="edu-item">
-        <div class="deg" data-i="eduDegree">Bachelor of Software Engineering</div>
-        <div class="sc">Eshragh University · Bojnourd, Iran</div>
-        <div class="dt">OCT 2025 — <span data-i="present2">Present</span></div>
-      </div>
-      <div class="langs">
-        <h3 data-i="langHeading">Languages</h3>
-        <div class="lang-row">
-          <span class="ln" data-i="langFa">Persian</span>
-          <span class="lang-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
-          <span class="lv" data-i="langFaLevel">Native</span>
+      <div class="nav-actions">
+        <div class="lang" role="group" aria-label="Language selector">
+          <button class="active" type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="fa">FA</button>
+          <button type="button" data-lang="de">DE</button>
         </div>
-        <div class="lang-row">
-          <span class="ln" data-i="langEn">English</span>
-          <span class="lang-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-          <span class="lv" data-i="langEnLevel">B1 · Technical</span>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">☰</button>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav">
+        <a href="#about" data-i="aboutNav">ABOUT</a>
+        <a href="#skills" data-i="skillsNav">SKILLS</a>
+        <a href="#experience" data-i="experienceNav">EXPERIENCE</a>
+        <a href="#work" data-i="workNav">PROJECTS</a>
+        <a href="#credentials" data-i="credNav">CREDENTIALS</a>
+        <a href="#contact" data-i="contactNav">CONTACT</a>
+      </div>
+    </nav>
+
+    <main id="top">
+      <header class="hero">
+        <div class="hero-copy">
+          <div class="status-pill"><span class="ping"></span><span data-i="statusPill">Open to remote &amp; relocation</span></div>
+          <div class="eyebrow" data-i="eyebrow">Flutter &amp; .NET Engineer · Tehran, Iran</div>
+          <h1 data-i="title">Building software<br>from idea to <span>production.</span></h1>
+          <p class="lede" data-i="intro">I'm Ali Eghbali, a Flutter &amp; .NET engineer focused on production mobile products and the systems behind them. I work across UI, architecture, offline sync, biometric security, GIS, AI-powered features and backend services.</p>
+          <div class="btn-row">
+            <a class="btn" href="#work" data-i="cta">View selected work ↗</a>
+            <a class="btn alt" href="mailto:kaspianlive17@gmail.com" data-i="ctaSecondary">Get in touch</a>
+          </div>
+          <div class="hero-meta">
+            <span><strong data-i="metaExp">2+ yrs</strong> <span data-i="metaExpLabel">Flutter in production</span></span>
+            <span class="meta-sep">·</span>
+            <span><strong>B1</strong> <span data-i="metaEnglish">English (technical)</span></span>
+            <span class="meta-sep">·</span>
+            <span data-i="metaAvail">Available on-site or remote</span>
+          </div>
+          <div class="signal-row reveal">
+            <div class="signal"><strong>Mobile</strong><span>Flutter · Dart · Offline-first</span></div>
+            <div class="signal"><strong>Backend</strong><span>ASP.NET Core · SQL Server · APIs</span></div>
+            <div class="signal"><strong>Intelligent</strong><span>TFLite · Biometrics · GIS</span></div>
+          </div>
         </div>
+
+        <div class="hero-visual reveal d1" aria-label="Developer visual">
+          <div class="hero-orbit" aria-hidden="true"></div>
+          <div class="device-stage">
+            <div class="visual-coord">PROD / 2024—2026</div>
+            <div class="profile-frame" id="portrait">
+              <img src="profile.jpg" alt="Ali Eghbali" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="profile-fallback" style="display:none">AE</div>
+              <div class="profile-caption"><span>ALI EGHBALI</span><span>AE / DEV</span></div>
+            </div>
+            <div class="terminal-card">
+              <div class="terminal-head"><i></i><i></i><i></i><strong>portfolio.config</strong></div>
+              <div class="terminal-body">
+                <div class="code-line"><span class="n">01</span><span class="txt"><span class="blue">role</span> = <span class="orange">"flutter_dotnet"</span></span></div>
+                <div class="code-line"><span class="n">02</span><span class="txt"><span class="blue">focus</span> = <span class="green">[mobile, backend]</span></span></div>
+                <div class="code-line"><span class="n">03</span><span class="txt"><span class="blue">ship</span> = <span class="green">[offline, secure, scalable]</span></span></div>
+                <div class="code-line"><span class="n">04</span><span class="txt"><span class="blue">status</span> = <span class="orange">"open_to_work"</span></span></div>
+              </div>
+            </div>
+            <div class="visual-tag">FLUTTER × .NET × AI</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="title-strip reveal">
+        <div class="strip-item"><span class="k" data-i="tbName">Name</span><span class="v">Ali Eghbali</span></div>
+        <div class="strip-item"><span class="k" data-i="tbRole">Role</span><span class="v" data-i="tbRoleVal">Flutter / .NET</span></div>
+        <div class="strip-item"><span class="k" data-i="tbBase">Based in</span><span class="v" data-i="tbBaseVal">Tehran, Iran</span></div>
+        <div class="strip-item"><span class="k" data-i="tbRev">Revision</span><span class="v">3.0 · 2026</span></div>
       </div>
-    </div>
-    <div class="cred-block">
-      <h3 data-i="certHeading">Certifications</h3>
-      <div class="cert-list">
-        <div class="cert-item"><span class="cn">ASP.NET Core MVC Professional</span><span class="cp">Faradars.ir · MAY 2026</span></div>
-        <div class="cert-item"><span class="cn">FastAPI Backend Development</span><span class="cp">Codeyad · JUL 2025</span></div>
-        <div class="cert-item"><span class="cn">Python Specialist Training</span><span class="cp">SabzLearn · OCT 2025</span></div>
-        <div class="cert-item"><span class="cn">Flutter Mobile Specialist</span><span class="cp">Codeyad · OCT 2024</span></div>
-      </div>
-    </div>
+
+      <section class="section" id="about">
+        <div class="section-head">
+          <div><div class="section-label">01 / <span data-i="aboutNav">ABOUT</span></div><h2 data-i="aboutTitle">A developer who owns<br>the whole stack.</h2></div>
+          <p class="section-sub" data-i="aboutSub">Architecture, UI, security and data — I like being accountable for how the pieces fit together.</p>
+        </div>
+
+        <div class="about-grid reveal">
+          <div class="about-copy">
+            <p data-i="aboutText1">I'm a software engineer who has spent the last two years going deep on cross-platform mobile development with Flutter, while building backend skills in ASP.NET Core. I care about clean architecture — SOLID principles, clear separation of concerns, and code that's built to be maintained, not just shipped.</p>
+            <p data-i="aboutText2">On Avan, our flagship enterprise app, I owned everything end to end: UI/UX, state management, offline-first data sync, biometric security with on-device AI, and live GIS tracking. I work best in collaborative engineering teams and I'm always picking up something new.</p>
+            <p data-i="aboutText3">Currently based in Tehran, Iran, and completing a Bachelor's in Software Engineering alongside full-time work. Native Persian speaker with strong technical English (B1 — reading and writing).</p>
+          </div>
+          <div class="fact-grid">
+            <div class="fact"><strong>2+</strong><span data-i="fact1">Years shipping Flutter apps in production</span></div>
+            <div class="fact"><strong>1</strong><span data-i="fact2">Flagship enterprise platform owned end-to-end</span></div>
+            <div class="fact"><strong>.NET</strong><span data-i="fact3">ASP.NET Core backend engineering</span></div>
+            <div class="fact"><strong>3</strong><span data-i="fact4">Languages available on this website</span></div>
+          </div>
+        </div>
+
+        <div class="featured-shell reveal d1">
+          <div class="featured-top">
+            <div>
+              <div class="mini">Featured case study</div>
+              <h3>Avan</h3>
+              <p data-i="featuredIntro">Enterprise mobile platform · Pishro Atieh</p>
+            </div>
+            <div class="featured-badge" data-i="featuredBadge">Commercial · 2025—Present</div>
+          </div>
+
+          <div class="featured-body">
+            <div class="featured-visual" aria-label="Conceptual Avan product preview">
+              <div class="phone-cluster" aria-hidden="true">
+                <div class="phone small">
+                  <div class="phone-screen">
+                    <div class="phone-notch"></div>
+                    <div class="phone-topbar"><span>AVAN</span><span>SYNC</span></div>
+                    <div class="phone-hero"><span>FIELD MODE</span><strong>Offline ready</strong></div>
+                    <div class="phone-row"><div class="phone-tile"><i></i><b>SECURE</b></div><div class="phone-tile"><i></i><b>TRACK</b></div></div>
+                    <div class="map-box"><span class="map-dot"></span></div>
+                  </div>
+                </div>
+                <div class="phone">
+                  <div class="phone-screen">
+                    <div class="phone-notch"></div>
+                    <div class="phone-topbar"><span>AVAN</span><span>LIVE</span></div>
+                    <div class="phone-hero"><span>OVERVIEW</span><strong>Field activity</strong></div>
+                    <div class="phone-row"><div class="phone-tile"><i></i><b>BIOMETRIC</b></div><div class="phone-tile"><i></i><b>GIS / MAP</b></div></div>
+                    <div class="map-box"><span class="map-dot"></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="featured-copy">
+              <h4 data-i="caseHeading">What I worked across</h4>
+              <ul class="feature-list" data-i="caseList">
+                <li>End-to-end mobile product development: UI/UX, state management, responsive layouts and background services.</li>
+                <li>Offline-first data synchronization between local SQLite/Hive storage and a SQL Server backend.</li>
+                <li>Biometric authentication plus on-device TFLite MobileFaceNet and custom eye-movement liveness detection.</li>
+                <li>Live background location tracking and interactive GIS map integration.</li>
+                <li>Clean architecture practices built around SOLID principles, Repository Pattern and structured state management.</li>
+              </ul>
+              <div class="stack-row">
+                <span class="stack-chip">Flutter</span><span class="stack-chip">Dart</span><span class="stack-chip">ASP.NET Core</span><span class="stack-chip">SQL Server</span><span class="stack-chip">TFLite</span><span class="stack-chip">GIS</span>
+              </div>
+              <div class="featured-foot">
+                <div class="role" data-i="caseRole">Mobile &amp; Full-Stack Development</div>
+                <a class="text-link" href="https://avan.pishroatieh.com" target="_blank" rel="noopener" data-i="caseLink">Visit product ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="diagram-block reveal d2">
+          <div class="fig-caption"><span class="tag">FIG. 01</span><p data-i="figCaption">How a typical build connects — mobile client, security layer, offline storage, API and database.</p></div>
+          <div class="diagram-frame">
+            <div class="diagram-scroll">
+              <svg viewBox="0 0 1120 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Application architecture diagram">
+                <g stroke="#1c3148" stroke-width="1">
+                  <path d="M20 22h22M31 12v22M1078 22h22M1089 12v22M20 398h22M31 388v22M1078 398h22M1089 388v22"/>
+                </g>
+                <g stroke="#25405b" stroke-width="1.4" fill="none">
+                  <line x1="168" y1="113" x2="168" y2="160"/><line x1="168" y1="265" x2="168" y2="315"/>
+                  <line x1="286" y1="212" x2="566" y2="212" stroke="#51c8f4" stroke-dasharray="6 6"/>
+                  <line x1="776" y1="212" x2="845" y2="212"/>
+                </g>
+                <g fill="#51c8f4">
+                  <path d="M168 160l-5-9h10z"/><path d="M168 315l-5-9h10z"/>
+                  <path d="M286 212l9-5v10z"/><path d="M566 212l-9-5v10z"/><path d="M845 212l-9-5v10z"/>
+                </g>
+                <g fill="#0f1d2c" stroke="#1c3148">
+                  <rect x="48" y="35" width="240" height="78" rx="10"/><rect x="48" y="160" width="240" height="105" rx="10" stroke="#51c8f4"/><rect x="48" y="315" width="240" height="72" rx="10"/>
+                  <rect x="566" y="160" width="210" height="105" rx="10"/><rect x="845" y="160" width="220" height="105" rx="10"/>
+                </g>
+                <g class="svg-title">
+                  <text x="68" y="63">BIOMETRIC + AI</text><text x="68" y="187">MOBILE CLIENT</text><text x="68" y="339">GIS + BACKGROUND</text><text x="587" y="187">BACKEND API</text><text x="865" y="187">SQL SERVER</text>
+                </g>
+                <g class="svg-sub">
+                  <text x="68" y="83">TFLite · MobileFaceNet</text><text x="68" y="101">Liveness detection</text>
+                  <text x="68" y="207">Flutter · Dart</text><text x="68" y="228">BLoC · Provider · GetX</text><text x="68" y="249">Hive · SQLite</text>
+                  <text x="68" y="361">Live location · map sync</text>
+                  <text x="587" y="207">ASP.NET Core MVC · C#</text><text x="587" y="228">EF Core · REST · T-SQL</text><text x="587" y="249">Razor Pages</text>
+                  <text x="865" y="207">Relational data layer</text><text x="865" y="228">T-SQL</text>
+                </g>
+                <g class="svg-label"><rect x="360" y="185" width="155" height="22" rx="6" fill="#0d1928"/><text x="437" y="200" text-anchor="middle">OFFLINE-FIRST SYNC</text></g>
+              </svg>
+            </div>
+            <div class="scroll-hint" data-i="scrollHint">← scroll to see the full diagram →</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-head">
+          <div><div class="section-label">02 / <span data-i="skillsNav">SKILLS</span></div><h2 data-i="skillsTitle">Tools I build with.</h2></div>
+          <p class="section-sub" data-i="skillsSub">Grouped by where they live in the stack, so the technical breadth is easy to scan.</p>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card reveal"><span class="skill-num">01</span><h3 data-i="catMobileTitle">Mobile &amp; Flutter</h3><p data-i="catMobileDesc">Cross-platform apps, from state architecture down to on-device storage.</p><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">BLoC</span><span class="chip">Provider</span><span class="chip">GetX</span><span class="chip">Hive</span><span class="chip">SQLite</span><span class="chip">Background Services</span><span class="chip">GIS / Maps</span><span class="chip">Biometric Auth</span><span class="chip">TFLite</span></div></article>
+          <article class="skill-card reveal d1"><span class="skill-num">02</span><h3 data-i="catBackendTitle">Backend &amp; .NET</h3><p data-i="catBackendDesc">APIs and data layers designed to stay maintainable as they grow.</p><div class="chips"><span class="chip">ASP.NET Core MVC</span><span class="chip">C#</span><span class="chip">Entity Framework Core</span><span class="chip">MS SQL Server</span><span class="chip">T-SQL</span><span class="chip">Razor Pages</span><span class="chip">RESTful APIs</span><span class="chip">FastAPI</span><span class="chip">JWT Auth</span></div></article>
+          <article class="skill-card reveal d2"><span class="skill-num">03</span><h3 data-i="catPracticesTitle">Engineering Practices</h3><p data-i="catPracticesDesc">The habits behind the code, not just the code itself.</p><div class="chips"><span class="chip">SOLID Principles</span><span class="chip">Design Patterns</span><span class="chip">Clean Architecture</span><span class="chip">Repository Pattern</span><span class="chip">OOP</span><span class="chip">Agile / Scrum</span><span class="chip">Git / GitHub</span></div></article>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-head"><div><div class="section-label">03 / <span data-i="experienceNav">EXPERIENCE</span></div><h2 data-i="expTitle">Where I've built this.</h2></div></div>
+        <div class="experience-card reveal">
+          <div class="exp-side">
+            <span class="exp-duration">JUN 2024 — JUN 2026</span>
+            <h3 data-i="roleTitle">Mobile &amp; Full-Stack Developer</h3>
+            <div class="co">Pishro Atieh · Tehran, Iran</div>
+            <div class="role-tag" data-i="roleTag">Enterprise mobile</div>
+          </div>
+          <div class="exp-main">
+            <ul class="exp-list" data-i="expBullets">
+              <li><b>End-to-end app engineering:</b> spearheaded full-lifecycle development for Avan, Pishro Atieh's flagship enterprise mobile app — UI/UX, state management architecture, offline caching, and background services.</li>
+              <li><b>Biometric security &amp; AI:</b> implemented fingerprint authentication and integrated TFLite MobileFaceNet models with a custom eye-movement liveness check.</li>
+              <li><b>Maps &amp; background services:</b> built background location tracking and interactive GIS map integration for real-time field tracking and data sync.</li>
+              <li><b>Architecture:</b> enforced SOLID principles and clean separation of concerns — Repository Pattern, structured state management — for testable, maintainable code.</li>
+              <li><b>Data sync:</b> engineered offline-first synchronization bridging local SQLite/Hive storage with a SQL Server backend, for uninterrupted offline use.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work">
+        <div class="section-head"><div><div class="section-label">04 / <span data-i="workNav">PROJECTS</span></div><h2 data-i="workTitle">Things I've shipped.</h2></div><p class="section-sub" data-i="workSub">A mix of commercial, open-source and personal work that shows how I approach different layers of software.</p></div>
+        <div class="projects">
+          <article class="project-card featured reveal">
+            <div class="project-top"><span class="project-type" data-i="proj1Type">Commercial</span><span class="project-date">MAY 2025 — <span data-i="present">Present</span></span></div>
+            <h3>Avan</h3><div class="project-client">Client: Pishro Atieh</div>
+            <p data-i="proj1Desc">Architected and built the complete Avan mobile product across Persian and English locales — UI, biometric security flows, background processing, GIS integration, and responsive layouts.</p>
+            <div class="project-tags"><span>FLUTTER · BIOMETRICS · GIS</span><a class="project-link" href="https://avan.pishroatieh.com" target="_blank" rel="noopener">avan.pishroatieh.com ↗</a></div>
+          </article>
+
+          <article class="project-card reveal d1">
+            <div class="project-top"><span class="project-type" data-i="proj2Type">Open Source</span><span class="project-date">MAY 2025</span></div>
+            <h3 data-i="proj2Name">Full-Stack Blog System</h3><div class="project-client">github.com/kaspian021</div>
+            <p data-i="proj2Desc">An end-to-end blogging platform: Flutter clients talking to a FastAPI backend, with RESTful API design and JWT authentication.</p>
+            <div class="project-tags"><span>FLUTTER · FASTAPI · JWT</span><a class="project-link" href="https://github.com/kaspian021/Blog-Sys" target="_blank" rel="noopener">Blog-Sys ↗</a></div>
+          </article>
+
+          <article class="project-card reveal d2">
+            <div class="project-top"><span class="project-type" data-i="proj3Type">Personal</span><span class="project-date">2025 — 2026</span></div>
+            <h3>SFileCloud</h3><div class="project-client" style="color:var(--muted-2)" data-i="proj3ClientLabel">Personal project</div>
+            <p data-i="proj3Desc">A security-focused mobile cloud storage interface with biometric authentication and on-device TFLite face recognition for protected access.</p>
+            <div class="project-tags"><span>FLUTTER · TFLITE · SECURITY</span><span>PRIVATE PROJECT</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="credentials">
+        <div class="section-head"><div><div class="section-label">05 / <span data-i="credNav">CREDENTIALS</span></div><h2 data-i="credTitle">Education &amp; certifications.</h2></div></div>
+        <div class="credentials">
+          <div class="cred-block reveal">
+            <h3 data-i="eduHeading">Education</h3>
+            <div class="edu-item"><div class="edu-degree" data-i="eduDegree">Bachelor of Software Engineering</div><div class="edu-school">Eshragh University · Bojnourd, Iran</div><div class="edu-date">OCT 2025 — <span data-i="present2">Present</span></div></div>
+            <div class="langs">
+              <h3 data-i="langHeading">Languages</h3>
+              <div class="lang-row"><span class="lang-name" data-i="langFa">Persian</span><span class="lang-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="lang-level" data-i="langFaLevel">Native</span></div>
+              <div class="lang-row"><span class="lang-name" data-i="langEn">English</span><span class="lang-bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span class="lang-level" data-i="langEnLevel">B1 · Technical</span></div>
+            </div>
+          </div>
+
+          <div class="cred-block reveal d1">
+            <h3 data-i="certHeading">Certifications</h3>
+            <div class="cert-list">
+              <div class="cert-item"><span class="cert-name">ASP.NET Core MVC Professional</span><span class="cert-provider">Faradars.ir · MAY 2026</span></div>
+              <div class="cert-item"><span class="cert-name">FastAPI Backend Development</span><span class="cert-provider">Codeyad · JUL 2025</span></div>
+              <div class="cert-item"><span class="cert-name">Python Specialist Training</span><span class="cert-provider">SabzLearn · OCT 2025</span></div>
+              <div class="cert-item"><span class="cert-name">Flutter Mobile Specialist</span><span class="cert-provider">Codeyad · OCT 2024</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="contact-wrap reveal">
+          <div>
+            <div class="section-label">06 / <span data-i="contactNav">CONTACT</span></div>
+            <h2 data-i="contactTitle">Have an idea?<br><span>Let's talk.</span></h2>
+            <p class="lede" data-i="contactText">Open to on-site roles in Tehran, remote positions, and relocation for the right team. I usually reply within a day.</p>
+            <div class="availability"><span data-i="available1">Remote</span><span data-i="available2">On-site · Tehran</span><span data-i="available3">Relocation</span></div>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:kaspianlive17@gmail.com"><span class="contact-key" data-i="emailLabel">Email</span><span class="contact-value">kaspianlive17@gmail.com <span class="contact-go">↗</span></span></a>
+            <a class="contact-link" href="tel:+989303700388"><span class="contact-key" data-i="phoneLabel">Phone</span><span class="contact-value">+98 930 370 0388 <span class="contact-go">↗</span></span></a>
+            <a class="contact-link" href="https://www.linkedin.com/in/alikaspian021" target="_blank" rel="noopener"><span class="contact-key">LinkedIn</span><span class="contact-value">/alikaspian021 <span class="contact-go">↗</span></span></a>
+            <a class="contact-link" href="https://github.com/kaspian021" target="_blank" rel="noopener"><span class="contact-key">GitHub</span><span class="contact-value">/kaspian021 <span class="contact-go">↗</span></span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span data-i="rights">© <span id="year"></span> Ali Eghbali. Built from scratch, not a template.</span>
+      <div class="footer-links"><a href="https://github.com/kaspian021" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/alikaspian021" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+    </footer>
   </div>
-</section>
 
-<section id="contact">
-  <div class="contact-grid reveal">
-    <div>
-      <div class="kicker">06 / <span data-i="contactNav">CONTACT</span></div>
-      <h2 data-i="contactTitle">Have an idea?<br><span style="color:var(--accent)">Let's talk.</span></h2>
-      <p class="lede" data-i="contactText">Open to on-site roles in Tehran, remote positions, and relocation for the right team. I usually reply within a day.</p>
-    </div>
-    <div class="contact-links">
-      <a class="clink" href="mailto:kaspianlive17@gmail.com"><span class="k" data-i="emailLabel">Email</span><span class="v go">kaspianlive17@gmail.com ↗</span></a>
-      <a class="clink" href="tel:+989303700388"><span class="k" data-i="phoneLabel">Phone</span><span class="v go">+98 930 370 0388 ↗</span></a>
-      <a class="clink" href="https://www.linkedin.com/in/alikaspian021" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v go">/alikaspian021 ↗</span></a>
-      <a class="clink" href="https://github.com/kaspian021" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v go">/kaspian021 ↗</span></a>
-    </div>
-  </div>
-</section>
-</main>
+  <script>
+    const t={
+      en:{
+        aboutNav:'ABOUT',skillsNav:'SKILLS',experienceNav:'EXPERIENCE',workNav:'PROJECTS',credNav:'CREDENTIALS',contactNav:'CONTACT',
+        statusPill:'Open to remote & relocation',eyebrow:'Flutter & .NET Engineer · Tehran, Iran',
+        title:'Building software<br>from idea to <span>production.</span>',
+        intro:'I\'m Ali Eghbali, a Flutter & .NET engineer focused on production mobile products and the systems behind them. I work across UI, architecture, offline sync, biometric security, GIS, AI-powered features and backend services.',
+        cta:'View selected work ↗',ctaSecondary:'Get in touch',metaExp:'2+ yrs',metaExpLabel:'Flutter in production',metaEnglish:'English (technical)',metaAvail:'Available on-site or remote',
+        tbName:'Name',tbRole:'Role',tbRoleVal:'Flutter / .NET',tbBase:'Based in',tbBaseVal:'Tehran, Iran',tbRev:'Revision',
+        aboutTitle:'A developer who owns<br>the whole stack.',aboutSub:'Architecture, UI, security and data — I like being accountable for how the pieces fit together.',
+        aboutText1:'I\'m a software engineer who has spent the last two years going deep on cross-platform mobile development with Flutter, while building backend skills in ASP.NET Core. I care about clean architecture — SOLID principles, clear separation of concerns, and code that\'s built to be maintained, not just shipped.',
+        aboutText2:'On Avan, our flagship enterprise app, I owned everything end to end: UI/UX, state management, offline-first data sync, biometric security with on-device AI, and live GIS tracking. I work best in collaborative engineering teams and I\'m always picking up something new.',
+        aboutText3:'Currently based in Tehran, Iran, and completing a Bachelor\'s in Software Engineering alongside full-time work. Native Persian speaker with strong technical English (B1 — reading and writing).',
+        fact1:'Years shipping Flutter apps in production',fact2:'Flagship enterprise platform owned end-to-end',fact3:'ASP.NET Core backend engineering',fact4:'Languages available on this website',
+        featuredIntro:'Enterprise mobile platform · Pishro Atieh',featuredBadge:'Commercial · 2025—Present',caseHeading:'What I worked across',
+        caseList:'<li>End-to-end mobile product development: UI/UX, state management, responsive layouts and background services.</li><li>Offline-first data synchronization between local SQLite/Hive storage and a SQL Server backend.</li><li>Biometric authentication plus on-device TFLite MobileFaceNet and custom eye-movement liveness detection.</li><li>Live background location tracking and interactive GIS map integration.</li><li>Clean architecture practices built around SOLID principles, Repository Pattern and structured state management.</li>',
+        caseRole:'Mobile & Full-Stack Development',caseLink:'Visit product ↗',
+        figCaption:'How a typical build connects — mobile client, security layer, offline storage, API and database.',scrollHint:'← scroll to see the full diagram →',
+        skillsTitle:'Tools I build with.',skillsSub:'Grouped by where they live in the stack, so the technical breadth is easy to scan.',
+        catMobileTitle:'Mobile & Flutter',catMobileDesc:'Cross-platform apps, from state architecture down to on-device storage.',catBackendTitle:'Backend & .NET',catBackendDesc:'APIs and data layers designed to stay maintainable as they grow.',catPracticesTitle:'Engineering Practices',catPracticesDesc:'The habits behind the code, not just the code itself.',
+        expTitle:'Where I\'ve built this.',roleTitle:'Mobile & Full-Stack Developer',roleTag:'Enterprise mobile',
+        expBullets:'<li><b>End-to-end app engineering:</b> spearheaded full-lifecycle development for Avan, Pishro Atieh\'s flagship enterprise mobile app — UI/UX, state management architecture, offline caching, and background services.</li><li><b>Biometric security & AI:</b> implemented fingerprint authentication and integrated TFLite MobileFaceNet models with a custom eye-movement liveness check.</li><li><b>Maps & background services:</b> built background location tracking and interactive GIS map integration for real-time field tracking and data sync.</li><li><b>Architecture:</b> enforced SOLID principles and clean separation of concerns — Repository Pattern, structured state management — for testable, maintainable code.</li><li><b>Data sync:</b> engineered offline-first synchronization bridging local SQLite/Hive storage with a SQL Server backend, for uninterrupted offline use.</li>',
+        workTitle:'Things I\'ve shipped.',workSub:'A mix of commercial, open-source and personal work that shows how I approach different layers of software.',present:'Present',present2:'Present',
+        proj1Type:'Commercial',proj1Desc:'Architected and built the complete Avan mobile product across Persian and English locales — UI, biometric security flows, background processing, GIS integration, and responsive layouts.',proj2Type:'Open Source',proj2Name:'Full-Stack Blog System',proj2Desc:'An end-to-end blogging platform: Flutter clients talking to a FastAPI backend, with RESTful API design and JWT authentication.',proj3Type:'Personal',proj3ClientLabel:'Personal project',proj3Desc:'A security-focused mobile cloud storage interface with biometric authentication and on-device TFLite face recognition for protected access.',
+        credTitle:'Education & certifications.',eduHeading:'Education',eduDegree:'Bachelor of Software Engineering',langHeading:'Languages',langFa:'Persian',langFaLevel:'Native',langEn:'English',langEnLevel:'B1 · Technical',certHeading:'Certifications',
+        contactTitle:'Have an idea?<br><span>Let\'s talk.</span>',contactText:'Open to on-site roles in Tehran, remote positions, and relocation for the right team. I usually reply within a day.',available1:'Remote',available2:'On-site · Tehran',available3:'Relocation',emailLabel:'Email',phoneLabel:'Phone',rights:'© <span id="year"></span> Ali Eghbali. Built from scratch, not a template.'
+      },
+      fa:{
+        aboutNav:'درباره من',skillsNav:'مهارت‌ها',experienceNav:'سابقه کاری',workNav:'پروژه‌ها',credNav:'تحصیلات',contactNav:'تماس',
+        statusPill:'آماده همکاری ریموت یا مهاجرت',eyebrow:'مهندس Flutter و .NET · تهران، ایران',
+        title:'ساخت نرم‌افزار<br>از ایده تا <span>محصول نهایی.</span>',
+        intro:'من علی اقبالی هستم؛ مهندس Flutter و .NET با تمرکز روی محصولات موبایلی واقعی و سیستم‌هایی که پشت آن‌ها قرار دارند. در رابط کاربری، معماری، همگام‌سازی آفلاین، امنیت بیومتریک، GIS، قابلیت‌های مبتنی بر هوش مصنوعی و سرویس‌های بک‌اند کار می‌کنم.',
+        cta:'مشاهده پروژه‌های منتخب ↗',ctaSecondary:'تماس با من',metaExp:'+۲ سال',metaExpLabel:'تجربه عملی با Flutter',metaEnglish:'انگلیسی (فنی)',metaAvail:'آماده کار حضوری یا ریموت',
+        tbName:'نام',tbRole:'تخصص',tbRoleVal:'Flutter / .NET',tbBase:'محل سکونت',tbBaseVal:'تهران، ایران',tbRev:'ویرایش',
+        aboutTitle:'برنامه‌نویسی که مسئولیت<br>کل استک را می‌پذیرد.',aboutSub:'معماری، رابط کاربری، امنیت و داده — دوست دارم مسئول کنار هم قرار گرفتن همه این بخش‌ها باشم.',
+        aboutText1:'من مهندس نرم‌افزاری هستم که دو سال گذشته را عمیقاً روی توسعه موبایل چندسکویی با Flutter گذرانده‌ام و در کنارش مهارت‌های بک‌اند خودم را با ASP.NET Core گسترش داده‌ام. برایم معماری تمیز مهم است — اصول SOLID، جداسازی درست مسئولیت‌ها و کدی که برای نگهداری نوشته شده، نه فقط برای تحویل دادن.',
+        aboutText2:'در پروژه آوان، اپلیکیشن پرچمدار سازمانی، مسئولیت همه بخش‌ها را داشتم: طراحی رابط کاربری، مدیریت state، همگام‌سازی داده به‌صورت آفلاین، امنیت بیومتریک با هوش مصنوعی روی دستگاه و ردیابی زنده مبتنی بر GIS. بهترین عملکردم در تیم‌های مهندسی مشارکتی است و همیشه در حال یادگیری چیز جدیدی هستم.',
+        aboutText3:'در حال حاضر ساکن تهران هستم و همزمان با کار تمام‌وقت، مقطع کارشناسی مهندسی نرم‌افزار را می‌گذرانم. زبان مادری فارسی و سطح انگلیسی فنی B1 (خواندن و نوشتن).',
+        fact1:'سال تجربه عملی ساخت اپلیکیشن‌های Flutter',fact2:'پلتفرم سازمانی که به‌طور کامل مسئولش بودم',fact3:'تجربه بک‌اند با ASP.NET Core',fact4:'زبان فعال در این وب‌سایت',
+        featuredIntro:'پلتفرم موبایل سازمانی · پیشرو آتیه',featuredBadge:'تجاری · ۲۰۲۵ تا اکنون',caseHeading:'بخش‌هایی که روی آن‌ها کار کردم',
+        caseList:'<li>توسعه کامل محصول موبایل: UI/UX، مدیریت state، چیدمان واکنش‌گرا و سرویس‌های پس‌زمینه.</li><li>همگام‌سازی داده به‌صورت آفلاین بین SQLite/Hive و بک‌اند SQL Server.</li><li>احراز هویت بیومتریک به‌همراه TFLite MobileFaceNet و تشخیص سفارشی حرکت چشم برای liveness.</li><li>ردیابی زنده موقعیت مکانی در پس‌زمینه و یکپارچه‌سازی نقشه تعاملی GIS.</li><li>اجرای معماری تمیز با تکیه بر SOLID، Repository Pattern و مدیریت ساختاریافته state.</li>',
+        caseRole:'توسعه موبایل و فول‌استک',caseLink:'مشاهده محصول ↗',
+        figCaption:'نحوه اتصال اجزای یک پروژه معمول — کلاینت موبایل، لایه امنیت، ذخیره‌سازی آفلاین، API و دیتابیس.',scrollHint:'← برای دیدن کل نمودار اسکرول کنید →',
+        skillsTitle:'ابزارهایی که با آن‌ها می‌سازم.',skillsSub:'دسته‌بندی شده بر اساس جایگاهشان در استک تا گستره فنی راحت‌تر دیده شود.',
+        catMobileTitle:'موبایل و Flutter',catMobileDesc:'اپلیکیشن‌های چندسکویی، از معماری state تا ذخیره‌سازی روی دستگاه.',catBackendTitle:'بک‌اند و .NET',catBackendDesc:'API و لایه‌های داده‌ای که با رشد پروژه هم قابل نگهداری می‌مانند.',catPracticesTitle:'اصول مهندسی',catPracticesDesc:'عادت‌ها و اصول پشت کد، نه فقط خود کد.',
+        expTitle:'جایی که این تجربه را ساخته‌ام.',roleTitle:'برنامه‌نویس موبایل و فول‌استک',roleTag:'موبایل سازمانی',
+        expBullets:'<li><b>مهندسی کامل اپلیکیشن:</b> توسعه کامل آوان را از رابط کاربری و معماری مدیریت state تا کش آفلاین و سرویس‌های پس‌زمینه هدایت کردم.</li><li><b>امنیت بیومتریک و هوش مصنوعی:</b> احراز هویت اثر انگشت و مدل‌های TFLite MobileFaceNet را همراه با تشخیص سفارشی حرکت چشم برای liveness یکپارچه کردم.</li><li><b>نقشه و سرویس‌های پس‌زمینه:</b> ردیابی موقعیت مکانی در پس‌زمینه و نقشه‌های GIS تعاملی برای ردیابی لحظه‌ای و همگام‌سازی داده ساختم.</li><li><b>معماری:</b> اصول SOLID، جداسازی تمیز مسئولیت‌ها، Repository Pattern و مدیریت ساختاریافته state را برای کدی قابل تست و نگهداری به کار گرفتم.</li><li><b>همگام‌سازی داده:</b> همگام‌سازی آفلاین بین SQLite/Hive و SQL Server را طراحی کردم تا استفاده بدون وقفه در حالت آفلاین ممکن باشد.</li>',
+        workTitle:'چیزهایی که ساخته‌ام.',workSub:'ترکیبی از پروژه‌های تجاری، متن‌باز و شخصی که نحوه کار من در لایه‌های مختلف نرم‌افزار را نشان می‌دهد.',present:'اکنون',present2:'اکنون',
+        proj1Type:'تجاری',proj1Desc:'محصول کامل موبایل آوان را برای دو زبان فارسی و انگلیسی طراحی و توسعه دادم — رابط کاربری، مسیرهای امنیت بیومتریک، پردازش پس‌زمینه، یکپارچه‌سازی GIS و چیدمان واکنش‌گرا.',proj2Type:'متن‌باز',proj2Name:'سیستم بلاگ فول‌استک',proj2Desc:'یک پلتفرم وبلاگ‌نویسی سرتاسری: کلاینت‌های Flutter در ارتباط با بک‌اند FastAPI، با طراحی RESTful API و احراز هویت JWT.',proj3Type:'شخصی',proj3ClientLabel:'پروژه شخصی',proj3Desc:'یک رابط ذخیره‌سازی ابری موبایل با تمرکز بر امنیت، شامل احراز هویت بیومتریک و تشخیص چهره TFLite روی دستگاه برای دسترسی محافظت‌شده.',
+        credTitle:'تحصیلات و گواهینامه‌ها.',eduHeading:'تحصیلات',eduDegree:'کارشناسی مهندسی نرم‌افزار',langHeading:'زبان‌ها',langFa:'فارسی',langFaLevel:'زبان مادری',langEn:'انگلیسی',langEnLevel:'B1 · فنی',certHeading:'گواهینامه‌ها',
+        contactTitle:'ایده‌ای دارید؟<br><span>بیایید صحبت کنیم.</span>',contactText:'آماده همکاری حضوری در تهران، موقعیت‌های ریموت و مهاجرت برای تیم مناسب هستم. معمولاً ظرف یک روز پاسخ می‌دهم.',available1:'ریموت',available2:'حضوری · تهران',available3:'مهاجرت',emailLabel:'ایمیل',phoneLabel:'تلفن',rights:'© <span id="year"></span> علی اقبالی. ساخته‌شده از پایه، نه از روی قالب.'
+      },
+      de:{
+        aboutNav:'ÜBER MICH',skillsNav:'SKILLS',experienceNav:'ERFAHRUNG',workNav:'PROJEKTE',credNav:'AUSBILDUNG',contactNav:'KONTAKT',
+        statusPill:'Offen für Remote & Umzug',eyebrow:'Flutter & .NET Engineer · Teheran, Iran',
+        title:'Software bauen<br>von der Idee bis zum <span>Produkt.</span>',
+        intro:'Ich bin Ali Eghbali, Flutter- und .NET-Entwickler mit Fokus auf produktive Mobile-Produkte und die Systeme dahinter. Ich arbeite an UI, Architektur, Offline-Sync, biometrischer Sicherheit, GIS, KI-basierten Funktionen und Backend-Services.',
+        cta:'Ausgewählte Projekte ansehen ↗',ctaSecondary:'Kontakt aufnehmen',metaExp:'2+ Jahre',metaExpLabel:'Flutter im produktiven Einsatz',metaEnglish:'Englisch (technisch)',metaAvail:'Vor Ort oder remote verfügbar',
+        tbName:'Name',tbRole:'Rolle',tbRoleVal:'Flutter / .NET',tbBase:'Standort',tbBaseVal:'Teheran, Iran',tbRev:'Version',
+        aboutTitle:'Ein Entwickler, der den<br>gesamten Stack verantwortet.',aboutSub:'Architektur, UI, Sicherheit und Daten — ich übernehme gerne Verantwortung dafür, dass alles zusammenpasst.',
+        aboutText1:'Ich bin Softwareentwickler und habe die letzten zwei Jahre intensiv an plattformübergreifender Entwicklung mit Flutter gearbeitet, während ich meine Backend-Kenntnisse mit ASP.NET Core ausgebaut habe. Saubere Architektur ist mir wichtig — SOLID-Prinzipien, klare Verantwortlichkeiten und Code, der auf Wartbarkeit ausgelegt ist.',
+        aboutText2:'Bei Avan, unserer Enterprise-App, habe ich alles von Anfang bis Ende verantwortet: UI/UX, State Management, Offline-First-Datensynchronisation, biometrische Sicherheit mit On-Device-KI und Live-GIS-Tracking. Am besten arbeite ich in kollaborativen Engineering-Teams und lerne ständig Neues dazu.',
+        aboutText3:'Ich lebe derzeit in Teheran, Iran, und schließe berufsbegleitend einen Bachelor in Software Engineering ab. Muttersprache Persisch, technisches Englisch auf B1-Niveau (Lesen und Schreiben).',
+        fact1:'Jahre Flutter-Erfahrung im produktiven Einsatz',fact2:'Enterprise-Plattform vollständig eigenverantwortlich betreut',fact3:'Backend-Erfahrung mit ASP.NET Core',fact4:'Sprachen auf dieser Website',
+        featuredIntro:'Enterprise-Mobile-Plattform · Pishro Atieh',featuredBadge:'Kommerziell · 2025—heute',caseHeading:'Bereiche meiner Arbeit',
+        caseList:'<li>End-to-End-Entwicklung des Mobile-Produkts: UI/UX, State Management, responsive Layouts und Hintergrunddienste.</li><li>Offline-First-Datensynchronisation zwischen lokalem SQLite/Hive-Speicher und SQL-Server-Backend.</li><li>Biometrische Authentifizierung mit TFLite MobileFaceNet und eigener Augenbewegungs-Erkennung für Liveness.</li><li>Live-Standortverfolgung im Hintergrund und interaktive GIS-Kartenintegration.</li><li>Saubere Architektur mit SOLID, Repository Pattern und strukturiertem State Management.</li>',
+        caseRole:'Mobile- & Full-Stack-Entwicklung',caseLink:'Produkt ansehen ↗',
+        figCaption:'So greift ein typisches Projekt ineinander — mobiler Client, Sicherheitsschicht, Offline-Speicher, API und Datenbank.',scrollHint:'← zum vollständigen Diagramm scrollen →',
+        skillsTitle:'Werkzeuge, mit denen ich arbeite.',skillsSub:'Nach ihrer Rolle im Stack gruppiert, damit die technische Breite schnell erfassbar bleibt.',
+        catMobileTitle:'Mobile & Flutter',catMobileDesc:'Plattformübergreifende Apps — von State-Architektur bis zur lokalen Datenspeicherung.',catBackendTitle:'Backend & .NET',catBackendDesc:'APIs und Datenschichten, die auch mit wachsendem Umfang wartbar bleiben.',catPracticesTitle:'Engineering-Praktiken',catPracticesDesc:'Die Gewohnheiten hinter dem Code — nicht nur der Code selbst.',
+        expTitle:'Wo ich diese Erfahrung aufgebaut habe.',roleTitle:'Mobile- & Full-Stack-Entwickler',roleTag:'Enterprise Mobile',
+        expBullets:'<li><b>End-to-End App-Entwicklung:</b> vollständige Entwicklung von Avan — UI/UX, State-Management-Architektur, Offline-Caching und Hintergrunddienste.</li><li><b>Biometrische Sicherheit & KI:</b> Fingerabdruck-Authentifizierung und TFLite-MobileFaceNet mit eigener Augenbewegungs-Erkennung für Liveness integriert.</li><li><b>Karten & Hintergrunddienste:</b> Hintergrund-Standortverfolgung und interaktive GIS-Karten für Echtzeit-Tracking und Datensynchronisation gebaut.</li><li><b>Architektur:</b> SOLID, saubere Verantwortlichkeitstrennung, Repository Pattern und strukturiertes State Management eingesetzt.</li><li><b>Datensynchronisation:</b> Offline-First-Synchronisation zwischen SQLite/Hive und SQL Server entwickelt.</li>',
+        workTitle:'Was ich gebaut habe.',workSub:'Kommerzielle, Open-Source- und persönliche Projekte, die unterschiedliche Ebenen meiner Arbeit zeigen.',present:'heute',present2:'heute',
+        proj1Type:'Kommerziell',proj1Desc:'Das vollständige Avan-Mobilprodukt für Persisch und Englisch konzipiert und entwickelt — UI, biometrische Sicherheitsabläufe, Hintergrundverarbeitung, GIS-Integration und responsive Layouts.',proj2Type:'Open Source',proj2Name:'Full-Stack-Blog-System',proj2Desc:'Eine durchgängige Blogging-Plattform: Flutter-Clients kommunizieren mit einem FastAPI-Backend, mit RESTful-API-Design und JWT-Authentifizierung.',proj3Type:'Privat',proj3ClientLabel:'Privates Projekt',proj3Desc:'Eine sicherheitsorientierte mobile Cloud-Speicher-Oberfläche mit biometrischer Authentifizierung und On-Device-TFLite-Gesichtserkennung für geschützten Zugriff.',
+        credTitle:'Ausbildung & Zertifikate.',eduHeading:'Ausbildung',eduDegree:'Bachelor of Software Engineering',langHeading:'Sprachen',langFa:'Persisch',langFaLevel:'Muttersprache',langEn:'Englisch',langEnLevel:'B1 · Technisch',certHeading:'Zertifikate',
+        contactTitle:'Eine Idee?<br><span>Sprechen wir.</span>',contactText:'Offen für Vor-Ort-Positionen in Teheran, Remote-Stellen und einen Umzug für das richtige Team. Ich antworte meist innerhalb eines Tages.',available1:'Remote',available2:'Vor Ort · Teheran',available3:'Umzug',emailLabel:'E-Mail',phoneLabel:'Telefon',rights:'© <span id="year"></span> Ali Eghbali. Von Grund auf gebaut, keine Vorlage.'
+      }
+    };
 
-<footer>
-  <span data-i="rights">© <span id="year"></span> Ali Eghbali. Built from scratch, not a template.</span>
-  <div class="social"><a href="https://github.com/kaspian021" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/alikaspian021" target="_blank" rel="noopener">LinkedIn ↗</a></div>
-</footer>
-</div>
+    const state={lang:'en'};
 
-<script>
-const t={
-en:{
-  aboutNav:'ABOUT',skillsNav:'SKILLS',experienceNav:'EXPERIENCE',workNav:'PROJECTS',credNav:'CREDENTIALS',contactNav:'CONTACT',
-  statusPill:'Open to remote & relocation',
-  eyebrow:'Mobile & Backend Engineer · Tehran, Iran',
-  title:'From blueprint<br>to <span>production.</span>',
-  intro:'I\'m Ali Eghbali, a Flutter specialist and ASP.NET Core developer. Over the past two years I\'ve taken a flagship enterprise mobile platform from architecture sketch to shipped product — UI, biometric security, offline sync, and the backend behind it.',
-  cta:'View my work ↗',ctaSecondary:'Get in touch',
-  metaExp:'2+ yrs',metaExpLabel:'Flutter in production',metaEnglish:'English (technical)',metaAvail:'Available on-site or remote',
-  tbName:'Name',tbRole:'Role',tbRoleVal:'Flutter / .NET',tbBase:'Based in',tbBaseVal:'Tehran, Iran',tbRev:'Revision',
-  aboutTitle:'A developer who owns<br>the whole stack.',
-  aboutSub:'Architecture, UI, security and data — I like being accountable for how all of it fits together.',
-  aboutText1:'I\'m a software engineer who has spent the last two years going deep on cross-platform mobile development with Flutter, while building out backend skills in ASP.NET Core. I care about clean architecture — SOLID principles, clear separation of concerns, and code that\'s built to be maintained, not just shipped.',
-  aboutText2:'On Avan, our flagship enterprise app, I owned everything end to end: UI/UX, state management, offline-first data sync, biometric security with on-device AI, and live GIS tracking. I work best in collaborative, on-site engineering teams, and I\'m always picking up something new.',
-  aboutText3:'Currently based in Tehran, Iran, and completing a Bachelor\'s in Software Engineering alongside full-time work. Native Persian speaker with strong technical English (B1 — reading and writing).',
-  fact1:'Years shipping Flutter apps in production',fact2:'Flagship enterprise platform owned end-to-end',fact3:'ASP.NET Core backend engineering',fact4:'Languages spoken on this site',
-  figCaption:'How a typical build fits together — mobile client, security layer, and the backend that syncs it all.',
-  scrollHint:'← scroll to see the full diagram →',
-  skillsTitle:'Tools I build with.',skillsSub:'Grouped by where they live in the stack, not just listed.',
-  catMobileTitle:'Mobile & Flutter',catMobileDesc:'Cross-platform apps, from state architecture down to on-device storage.',
-  catBackendTitle:'Backend & .NET',catBackendDesc:'APIs and data layers built to stay maintainable as they grow.',
-  catPracticesTitle:'Engineering Practices',catPracticesDesc:'The habits behind the code, not just the code itself.',
-  expTitle:'Where I\'ve built this.',roleTitle:'Mobile & Full-Stack Developer',
-  expBullets:'<li><b>End-to-end app engineering:</b> spearheaded full-lifecycle development for Avan, Pishro Atieh\'s flagship enterprise mobile app — UI/UX, state management architecture, offline caching, and background services.</li><li><b>Biometric security & AI:</b> implemented fingerprint authentication and integrated TFLite MobileFaceNet models with a custom eye-movement liveness check.</li><li><b>Maps & background services:</b> built background location tracking and interactive GIS map integration for real-time field tracking and data sync.</li><li><b>Architecture:</b> enforced SOLID principles and clean separation of concerns — Repository Pattern, structured state management — for testable, maintainable code.</li><li><b>Data sync:</b> engineered offline-first synchronization bridging local SQLite/Hive storage with a SQL Server backend, for uninterrupted offline use.</li>',
-  workTitle:'Things I\'ve shipped.',present:'Present',present2:'Present',
-  proj1Type:'Commercial',proj1Desc:'Architected and built the complete Avan mobile product across Persian and English locales — UI, biometric security flows, background processing, GIS integration, and responsive layouts.',
-  proj2Type:'Open Source',proj2Name:'Full-Stack Blog System',proj2Desc:'An end-to-end blogging platform: Flutter clients talking to a FastAPI backend, with RESTful API design and JWT authentication.',
-  proj3Type:'Personal',proj3ClientLabel:'Personal project',proj3Desc:'A security-focused mobile cloud storage interface with biometric authentication and on-device TFLite face recognition for protected access.',
-  credTitle:'Education & certifications.',eduHeading:'Education',eduDegree:'Bachelor of Software Engineering',
-  langHeading:'Languages',langFa:'Persian',langFaLevel:'Native',langEn:'English',langEnLevel:'B1 · Technical',
-  certHeading:'Certifications',
-  contactTitle:'Have an idea?<br><span style="color:var(--accent)">Let\'s talk.</span>',
-  contactText:'Open to on-site roles in Tehran, remote positions, and relocation for the right team. I usually reply within a day.',
-  emailLabel:'Email',phoneLabel:'Phone',
-  rights:'© <span id="year"></span> Ali Eghbali. Built from scratch, not a template.'
-},
-fa:{
-  aboutNav:'درباره من',skillsNav:'مهارت‌ها',experienceNav:'سابقه کاری',workNav:'پروژه‌ها',credNav:'تحصیلات',contactNav:'تماس',
-  statusPill:'آماده همکاری ریموت یا مهاجرت',
-  eyebrow:'برنامه‌نویس موبایل و بک‌اند · تهران، ایران',
-  title:'از طراحی<br>تا <span>محصول نهایی.</span>',
-  intro:'من علی اقبالی هستم؛ متخصص Flutter و برنامه‌نویس ASP.NET Core. در دو سال گذشته یک پلتفرم موبایل سازمانی را از صفر تا محصول نهایی ساخته‌ام — رابط کاربری، امنیت بیومتریک، همگام‌سازی آفلاین و بک‌اندی که پشت همه اینهاست.',
-  cta:'مشاهده نمونه‌کارها ↗',ctaSecondary:'تماس با من',
-  metaExp:'+۲ سال',metaExpLabel:'تجربه عملی با Flutter',metaEnglish:'انگلیسی (فنی)',metaAvail:'آماده کار حضوری یا ریموت',
-  tbName:'نام',tbRole:'تخصص',tbRoleVal:'Flutter / .NET',tbBase:'محل سکونت',tbBaseVal:'تهران، ایران',tbRev:'ویرایش',
-  aboutTitle:'برنامه‌نویسی که مسئولیت<br>کل استک را می‌پذیرد.',
-  aboutSub:'معماری، رابط کاربری، امنیت و داده — دوست دارم مسئول جفت‌وجور شدن همه این تکه‌ها باشم.',
-  aboutText1:'من مهندس نرم‌افزاری هستم که دو سال گذشته را عمیقاً روی توسعه موبایل چندسکویی با Flutter گذرانده‌ام و در کنارش مهارت‌های بک‌اند خودم را با ASP.NET Core گسترش داده‌ام. برایم معماری تمیز مهم است — اصول SOLID، جداسازی درست لایه‌ها و کدی که برای نگهداری نوشته شده، نه فقط برای تحویل دادن.',
-  aboutText2:'در پروژه آوان، اپلیکیشن پرچمدار شرکت، مسئولیت همه بخش‌ها را داشتم: طراحی رابط کاربری، مدیریت state، همگام‌سازی داده به‌صورت آفلاین-محور، امنیت بیومتریک با هوش مصنوعی روی دستگاه، و ردیابی زنده مبتنی بر GIS. بهترین عملکردم در تیم‌های مهندسی حضوری و مشارکتی است و همیشه در حال یادگیری چیز جدیدی هستم.',
-  aboutText3:'در حال حاضر ساکن تهران هستم و همزمان با کار تمام‌وقت، مقطع کارشناسی مهندسی نرم‌افزار را می‌گذرانم. زبان مادری فارسی و سطح انگلیسی فنی B1 (خواندن و نوشتن قوی).',
-  fact1:'سال تجربه عملی ساخت اپلیکیشن‌های Flutter',fact2:'پلتفرم سازمانی که به‌طور کامل مسئولش بودم',fact3:'تجربه بک‌اند با ASP.NET Core',fact4:'زبان فعال در این وب‌سایت',
-  figCaption:'یک نمونه معمول از نحوه ساخت پروژه — کلاینت موبایل، لایه امنیتی، و بک‌اندی که همه‌چیز را همگام می‌کند.',
-  scrollHint:'← برای دیدن کل نمودار اسکرول کنید →',
-  skillsTitle:'ابزارهایی که با آن‌ها می‌سازم.',skillsSub:'دسته‌بندی‌شده بر اساس جایگاهشان در استک، نه فقط یک لیست ساده.',
-  catMobileTitle:'موبایل و Flutter',catMobileDesc:'اپلیکیشن‌های چندسکویی، از معماری state تا ذخیره‌سازی روی دستگاه.',
-  catBackendTitle:'بک‌اند و .NET',catBackendDesc:'API و لایه‌های داده‌ای که با رشد پروژه هم قابل نگهداری می‌مانند.',
-  catPracticesTitle:'اصول مهندسی',catPracticesDesc:'عادت‌های پشت کد، نه فقط خود کد.',
-  expTitle:'جایی که این‌ها را ساخته‌ام.',roleTitle:'برنامه‌نویس موبایل و فول‌استک',
-  expBullets:'<li><b>مهندسی کامل اپلیکیشن:</b> مسئولیت توسعه کامل آوان، اپلیکیشن پرچمدار پیشرو آتیه را برعهده داشتم — رابط کاربری، معماری مدیریت state، کش‌سازی آفلاین و سرویس‌های پس‌زمینه.</li><li><b>امنیت بیومتریک و هوش مصنوعی:</b> احراز هویت اثر انگشت را پیاده‌سازی کردم و مدل‌های TFLite MobileFaceNet را همراه با الگوریتم سفارشی تشخیص حرکت چشم برای liveness detection یکپارچه کردم.</li><li><b>نقشه و سرویس‌های پس‌زمینه:</b> ردیابی موقعیت مکانی در پس‌زمینه و یکپارچه‌سازی نقشه‌های GIS تعاملی برای ردیابی لحظه‌ای و همگام‌سازی داده ساختم.</li><li><b>معماری:</b> اصول SOLID و جداسازی تمیز مسئولیت‌ها (Repository Pattern، مدیریت ساختاریافته state) را برای کدی قابل تست و نگهداری اجرا کردم.</li><li><b>همگام‌سازی داده:</b> همگام‌سازی آفلاین-محور بین پایگاه‌داده محلی SQLite/Hive و بک‌اند SQL Server را طراحی کردم تا استفاده آفلاین بدون وقفه تضمین شود.</li>',
-  workTitle:'چیزهایی که ساخته‌ام.',present:'اکنون',present2:'اکنون',
-  proj1Type:'تجاری',proj1Desc:'محصول کامل موبایل آوان را برای دو زبان فارسی و انگلیسی طراحی و توسعه دادم — رابط کاربری، مسیرهای امنیت بیومتریک، پردازش پس‌زمینه، یکپارچه‌سازی GIS و چیدمان واکنش‌گرا.',
-  proj2Type:'متن‌باز',proj2Name:'سیستم بلاگ فول‌استک',proj2Desc:'یک پلتفرم وبلاگ‌نویسی سرتاسری: کلاینت‌های Flutter در ارتباط با بک‌اند FastAPI، با طراحی RESTful API و احراز هویت JWT.',
-  proj3Type:'شخصی',proj3ClientLabel:'پروژه شخصی',proj3Desc:'یک رابط کاربری ذخیره‌سازی ابری موبایل با تمرکز بر امنیت، شامل احراز هویت بیومتریک و تشخیص چهره TFLite روی دستگاه برای دسترسی محافظت‌شده.',
-  credTitle:'تحصیلات و گواهینامه‌ها.',eduHeading:'تحصیلات',eduDegree:'کارشناسی مهندسی نرم‌افزار',
-  langHeading:'زبان‌ها',langFa:'فارسی',langFaLevel:'زبان مادری',langEn:'انگلیسی',langEnLevel:'B1 · فنی',
-  certHeading:'گواهینامه‌ها',
-  contactTitle:'ایده‌ای دارید؟<br><span style="color:var(--accent)">بیایید صحبت کنیم.</span>',
-  contactText:'آماده همکاری حضوری در تهران، موقعیت‌های ریموت، و مهاجرت برای تیم مناسب هستم. معمولاً ظرف یک روز پاسخ می‌دهم.',
-  emailLabel:'ایمیل',phoneLabel:'تلفن',
-  rights:'© <span id="year"></span> علی اقبالی. ساخته‌شده از پایه، نه از روی قالب.'
-},
-de:{
-  aboutNav:'ÜBER MICH',skillsNav:'SKILLS',experienceNav:'ERFAHRUNG',workNav:'PROJEKTE',credNav:'AUSBILDUNG',contactNav:'KONTAKT',
-  statusPill:'Offen für Remote & Umzug',
-  eyebrow:'Mobile- & Backend-Entwickler · Teheran, Iran',
-  title:'Vom Entwurf<br>zum <span>fertigen Produkt.</span>',
-  intro:'Ich bin Ali Eghbali, Flutter-Spezialist und ASP.NET-Core-Entwickler. In den letzten zwei Jahren habe ich eine zentrale Enterprise-Mobile-Plattform von der Architektur bis zum fertigen Produkt gebracht — UI, biometrische Sicherheit, Offline-Sync und das Backend dahinter.',
-  cta:'Meine Projekte ansehen ↗',ctaSecondary:'Kontakt aufnehmen',
-  metaExp:'2+ Jahre',metaExpLabel:'Flutter im produktiven Einsatz',metaEnglish:'Englisch (technisch)',metaAvail:'Vor Ort oder remote verfügbar',
-  tbName:'Name',tbRole:'Rolle',tbRoleVal:'Flutter / .NET',tbBase:'Standort',tbBaseVal:'Teheran, Iran',tbRev:'Version',
-  aboutTitle:'Ein Entwickler, der den<br>gesamten Stack verantwortet.',
-  aboutSub:'Architektur, UI, Sicherheit und Daten — ich übernehme gerne die Verantwortung dafür, dass alles zusammenpasst.',
-  aboutText1:'Ich bin Softwareentwickler und habe die letzten zwei Jahre intensiv an plattformübergreifender mobiler Entwicklung mit Flutter gearbeitet, während ich meine Backend-Kenntnisse mit ASP.NET Core ausgebaut habe. Saubere Architektur ist mir wichtig — SOLID-Prinzipien, klare Trennung der Verantwortlichkeiten und Code, der auf Wartbarkeit ausgelegt ist, nicht nur auf schnelles Ausliefern.',
-  aboutText2:'Bei Avan, unserer wichtigsten Enterprise-App, habe ich alles von Anfang bis Ende verantwortet: UI/UX, State Management, Offline-First-Datensynchronisation, biometrische Sicherheit mit On-Device-KI und Live-GIS-Tracking. Am besten arbeite ich in kollaborativen Vor-Ort-Teams und lerne dabei ständig Neues dazu.',
-  aboutText3:'Ich lebe derzeit in Teheran, Iran, und schließe berufsbegleitend einen Bachelor in Software Engineering ab. Muttersprache Persisch, technisches Englisch auf B1-Niveau (starkes Lese- und Schreibverständnis).',
-  fact1:'Jahre Flutter-Erfahrung im produktiven Einsatz',fact2:'Enterprise-Plattform vollständig eigenverantwortlich betreut',fact3:'Backend-Erfahrung mit ASP.NET Core',fact4:'Sprachen auf dieser Website',
-  figCaption:'So greift ein typisches Projekt ineinander — mobiler Client, Sicherheitsschicht und das Backend, das alles synchronisiert.',
-  scrollHint:'← zum vollständigen Diagramm scrollen →',
-  skillsTitle:'Werkzeuge, mit denen ich arbeite.',skillsSub:'Gruppiert nach ihrer Rolle im Stack, nicht einfach aufgelistet.',
-  catMobileTitle:'Mobile & Flutter',catMobileDesc:'Plattformübergreifende Apps — von der State-Architektur bis zur lokalen Datenspeicherung.',
-  catBackendTitle:'Backend & .NET',catBackendDesc:'APIs und Datenschichten, die auch mit wachsendem Umfang wartbar bleiben.',
-  catPracticesTitle:'Engineering-Praktiken',catPracticesDesc:'Die Gewohnheiten hinter dem Code — nicht nur der Code selbst.',
-  expTitle:'Wo ich das aufgebaut habe.',roleTitle:'Mobile- & Full-Stack-Entwickler',
-  expBullets:'<li><b>End-to-End App-Entwicklung:</b> Verantwortung für die vollständige Entwicklung von Avan, der Enterprise-Flaggschiff-App von Pishro Atieh — UI/UX, State-Management-Architektur, Offline-Caching und Hintergrunddienste.</li><li><b>Biometrische Sicherheit & KI:</b> Fingerabdruck-Authentifizierung implementiert und TFLite-MobileFaceNet-Modelle mit einer eigens entwickelten Augenbewegungs-Erkennung zur Liveness-Prüfung integriert.</li><li><b>Karten & Hintergrunddienste:</b> Hintergrund-Standortverfolgung und interaktive GIS-Karteneinbindung für Echtzeit-Tracking und Datensynchronisation gebaut.</li><li><b>Architektur:</b> SOLID-Prinzipien und saubere Trennung der Verantwortlichkeiten durchgesetzt — Repository Pattern, strukturiertes State Management — für testbaren, wartbaren Code.</li><li><b>Datensynchronisation:</b> Offline-First-Synchronisation zwischen lokalem SQLite/Hive-Speicher und einem SQL-Server-Backend entwickelt, für unterbrechungsfreie Offline-Nutzung.</li>',
-  workTitle:'Was ich gebaut habe.',present:'Heute',present2:'Heute',
-  proj1Type:'Kommerziell',proj1Desc:'Das vollständige Avan-Mobilprodukt für Persisch und Englisch konzipiert und entwickelt — UI, biometrische Sicherheitsabläufe, Hintergrundverarbeitung, GIS-Integration und responsive Layouts.',
-  proj2Type:'Open Source',proj2Name:'Full-Stack-Blog-System',proj2Desc:'Eine durchgängige Blogging-Plattform: Flutter-Clients kommunizieren mit einem FastAPI-Backend, mit RESTful-API-Design und JWT-Authentifizierung.',
-  proj3Type:'Privat',proj3ClientLabel:'Privates Projekt',proj3Desc:'Eine sicherheitsorientierte mobile Cloud-Speicher-Oberfläche mit biometrischer Authentifizierung und On-Device-TFLite-Gesichtserkennung für geschützten Zugriff.',
-  credTitle:'Ausbildung & Zertifikate.',eduHeading:'Ausbildung',eduDegree:'Bachelor of Software Engineering',
-  langHeading:'Sprachen',langFa:'Persisch',langFaLevel:'Muttersprache',langEn:'Englisch',langEnLevel:'B1 · Technisch',
-  certHeading:'Zertifikate',
-  contactTitle:'Eine Idee?<br><span style="color:var(--accent)">Sprechen wir.</span>',
-  contactText:'Offen für Vor-Ort-Positionen in Teheran, Remote-Stellen und einen Umzug für das richtige Team. Ich antworte meist innerhalb eines Tages.',
-  emailLabel:'E-Mail',phoneLabel:'Telefon',
-  rights:'© <span id="year"></span> Ali Eghbali. Von Grund auf gebaut, keine Vorlage.'
-}
-};
+    function setLang(lang){
+      state.lang=lang;
+      document.documentElement.lang=lang;
+      document.documentElement.dir=lang==='fa'?'rtl':'ltr';
+      document.querySelectorAll('[data-i]').forEach(el=>{
+        const value=t[lang]?.[el.dataset.i];
+        if(value !== undefined) el.innerHTML=value;
+      });
+      document.querySelectorAll('.lang button').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===lang));
+      document.getElementById('year').textContent=new Date().getFullYear();
+      localStorage.setItem('portfolio-lang',lang);
+    }
 
-function setLang(l){
-  document.documentElement.lang=l;
-  document.documentElement.dir=l==='fa'?'rtl':'ltr';
-  document.querySelectorAll('[data-i]').forEach(e=>{
-    const v=t[l][e.dataset.i];
-    if(v!==undefined) e.innerHTML=v;
-  });
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
-  const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
-}
-document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
-setLang('en');
+    function updateProgress(){
+      const doc=document.documentElement;
+      const max=doc.scrollHeight-doc.clientHeight;
+      const progress=max>0?window.scrollY/max:0;
+      document.getElementById('topProgress').style.transform=`scaleX(${progress})`;
+    }
 
-if('IntersectionObserver' in window){
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-}else{
-  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
-}
-</script>
+    function closeMobileNav(){
+      const menu=document.getElementById('mobileNav');
+      const toggle=document.getElementById('menuToggle');
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    }
+
+    document.querySelectorAll('.lang button').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
+
+    const menuToggle=document.getElementById('menuToggle');
+    menuToggle.addEventListener('click',()=>{
+      const menu=document.getElementById('mobileNav');
+      const open=menu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded',String(open));
+    });
+    document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',closeMobileNav));
+
+    const sections=[...document.querySelectorAll('main section[id]')];
+    const navLinks=[...document.querySelectorAll('.navlink[data-section]')];
+    if('IntersectionObserver' in window){
+      const revealObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){entry.target.classList.add('in');revealObserver.unobserve(entry.target)}
+        });
+      },{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+      const sectionObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            navLinks.forEach(link=>link.classList.toggle('active',link.dataset.section===entry.target.id));
+          }
+        });
+      },{rootMargin:'-35% 0px -55% 0px',threshold:0});
+      sections.forEach(section=>sectionObserver.observe(section));
+    }else{
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+    }
+
+    window.addEventListener('scroll',updateProgress,{passive:true});
+    updateProgress();
+
+    const glow=document.getElementById('cursorGlow');
+    if(window.matchMedia('(pointer:fine)').matches){
+      window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';glow.style.opacity='1'},{passive:true});
+      document.addEventListener('mouseleave',()=>glow.style.opacity='0');
+    }
+
+    const stored=localStorage.getItem('portfolio-lang');
+    setLang(stored && t[stored] ? stored : 'en');
+  </script>
 </body>
 </html>
